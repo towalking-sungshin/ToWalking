@@ -1,7 +1,7 @@
 const httpStatus = require("http-status-codes"); // 설치
 
 exports.logError = (error, req, res, next) => {
-    console.eror(error.stack);
+    console.error(error.stack);
     next(error);
 };
 

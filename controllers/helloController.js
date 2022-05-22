@@ -1,3 +1,3 @@
 exports.helloController = (req, res) => {
-    res.render("index", {name : req.params.name});
+    res.render("hello", {name : req.params.name});
 }

@@ -7,7 +7,6 @@ const port = 3000,
 
 app.set("port", process.env.port || 3000);
 app.set("view engine", "ejs"); // 뷰 엔진으로 ejs 선택
-app.use(layouts);
 
 app.get("/hello/:name", helloController.helloController);
 
