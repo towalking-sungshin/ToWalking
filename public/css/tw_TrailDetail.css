@@ -1,0 +1,149 @@
+body {
+    background-color: #eeeeee;
+}
+/* 가운데 정렬 */
+.center {
+    margin: auto;
+}
+
+/* 빨간 테두리 */
+.border {
+    border: 1px solid red;
+}
+
+/* div 줄 띄기 방지 */
+.inline {
+    display: inline;
+}
+
+/* 가장 큰 바깥 상자 */
+.container {
+    width: 450px;
+    height: max-content;
+    background-color: white;
+}
+
+.padding {
+    height: 15px;
+}
+
+.width_97 {
+    width: 97%;
+    margin-bottom: 10px;
+}
+
+.width_93 {
+    width: 93%;
+    margin-bottom: 10px;
+}
+
+.width_90 {
+    width: 90%;
+}
+
+.font_15 {
+    font-size: 15px;
+}
+
+.writer_div {
+    margin-left: 1%;
+}
+
+/* td, tr {
+    border: 1px solid blue;
+} */
+
+.top_nav {
+    height: 60px;
+} 
+
+.back_img {
+    width: 30%;
+    margin-top: 22%;
+}
+
+.top_back {
+    width: 20%;
+    float: left;
+    text-align: left;
+    line-height: 60px; /* 수직 정렬 */
+}
+
+.top_name {
+    width: 50%;
+    float: left;
+    margin-left: 5%;
+    text-align: center;
+    line-height: 60px;
+    font-size: large;
+    font-weight: 1000;
+}
+
+.top_review {
+    width: 20%;
+    float: right;
+    text-align: right;
+    line-height: 60px;
+    color: #ffc30d;
+}
+
+.image {
+    width: 400px;
+    height: 300px;
+}
+
+.writer {
+    padding-top: 15px;
+}
+
+.tag {
+    margin-left: 1%;
+    line-height: 50px;
+}
+
+.placeholder_img_td {
+    width: 9%;
+    padding-right: 3%;
+}
+
+.placeholder {
+    width: 100%;
+}
+
+.more_review_text {
+    padding-top: 1.5%;
+    float: right;
+}
+
+.more_review_img {
+    width: 4%;
+}
+
+.review_item {
+    margin-bottom: 5%;
+}
+
+.review_content {
+    margin-left: -4%;
+    height: 100%;
+}
+
+.heart_img {
+    width: 4%;
+    float: right;
+}
+
+.review_like {
+    float: right;
+    margin-right: 12%;
+    font-size: small;
+}
+
+.earth_img_td {
+    width: 8%;
+    padding-right: 2%;
+}
+
+li {
+    list-style: none;
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/user_TrailDetail.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div class="container center">
+
+        <nav class="top_nav center width_90">
+
+            <div class="top_back inline">
+                <img src="image/back.png" class="back_img">
+            </div>
+
+            <div class="top_name inline center">
+                <%= trailDetail.user_tw_name %>
+            </div>
+
+            <div class="top_review inline">
+                후기 목록
+            </div>
+
+        </nav>
+        <div class="image center width_90">
+            <img class="image center" src="<%= trailDetail.user_tw_pic %>">
+        </div>
+
+        <div class="writer center width_90">
+
+            <div class="writer_div inline">글쓴이: </div>
+            <div class="writer_div inline"><%= trailDetail.user_id %></div>
+
+
+        </div>
+
+        <div class="center width_90">
+
+            <div class="tag inline"><%= trailDetail.theme %>
+            </div>
+            <div class="tag inline"><%= trailDetail.theme2 %>
+            </div>
+            <div class="tag inline"><%= trailDetail.theme3 %>
+            </div>
+
+
+            </div>
+
+        <div class="center width_93">
+            <table>
+                <tr>
+                    <td class="placeholder_img_td"><img src="image//placeholder.png" class="placeholder"></td>
+                    <td>출발</td>
+                    <td><%= trailDetail.start %></td>
+                </tr>
+                <tr>
+                    <td class="placeholder_img_td"><img src="image/placeholder.png" class="placeholder"></td>
+                    <td>도착</td>
+                    <td><%= trailDetail.end %></td>
+                </tr>
+            </table>
+
+        </div>
+
+            <div class="padding"></div>
+
+            <div class="width_93 center">
+                <table>
+                    <tr>
+                        <td class="placeholder_img_td"><img src="image/review.png" class="placeholder"></td>
+                        <td>후기</td>
+                        <td class="more_review_text">자세히</td>
+                        <td class="more_review_img"><img src="image/more_review.png" class="placeholder"></td>
+                    </tr>
+                </table>
+
+                <div>
+                    <ol class="review_group">
+                        <li class="review_item">
+                            <div class="review_content inline">도란 도란 걷기 너무 좋네요.</div>
+                            <div class="review_like inline">53</div>
+                            <img src="image/heart.png" class="heart_img">
+                        </li>
+                        <li class="review_item">친구들과 산책하기 너무 편해요.
+                            <div class="review_like inline">53</div>
+                            <img src="image/heart.png" class="heart_img">
+                        </li>
+                        <li class="review_item">산책 코스 난이도가 어렵지 않아요.
+                            <div class="review_like inline">53</div>
+                            <img src="image/heart.png" class="heart_img">
+                        </li>
+                        <li class="review_item">새소리가 너무 듣기 좋아요.
+                            <div class="review_like inline">53</div>
+                            <img src="image/heart.png" class="heart_img">
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <div class="padding"></div>
+
+            <div class="width_90 center">
+                <table>
+                    <tr>
+                        <td class="earth_img_td"><img src="image/earth.png" class="placeholder"></td>
+                        <td>위치</td>
+                        <td class="more_review_text">자세히</td>
+                        <td class="more_review_img"><img src="image/more_review.png" class="placeholder"></td>
+                    </tr>
+                </table>
+
+            </div>
+
+        <div class="image center width_90">
+            <iframe src="<%= trailDetail.map %>" allowfullscreen="" loading="lazy" class="image center"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+            <div class="padding"></div>
+
+        </div>
+
+
+</body>
+
+</html>
