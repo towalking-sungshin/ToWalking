@@ -52,7 +52,10 @@
 
             </div>
 
-        <div class="center width_93">
+        <div class="center width_85">
+
+            <div class="padding"></div>
+
             <table>
                 <tr>
                     <td class="placeholder_img_td"><img src="image//placeholder.png" class="placeholder"></td>
@@ -70,7 +73,7 @@
 
             <div class="padding"></div>
 
-            <div class="width_93 center">
+            <div class="width_85 center">
                 <table>
                     <tr>
                         <td class="placeholder_img_td"><img src="image/review.png" class="placeholder"></td>
@@ -83,28 +86,20 @@
                 <div>
                     <ol class="review_group">
                         <li class="review_item">
-                            <div class="review_content inline">도란 도란 걷기 너무 좋네요.</div>
-                            <div class="review_like inline">53</div>
-                            <img src="image/heart.png" class="heart_img">
-                        </li>
-                        <li class="review_item">친구들과 산책하기 너무 편해요.
-                            <div class="review_like inline">53</div>
-                            <img src="image/heart.png" class="heart_img">
-                        </li>
-                        <li class="review_item">산책 코스 난이도가 어렵지 않아요.
-                            <div class="review_like inline">53</div>
-                            <img src="image/heart.png" class="heart_img">
-                        </li>
-                        <li class="review_item">새소리가 너무 듣기 좋아요.
-                            <div class="review_like inline">53</div>
-                            <img src="image/heart.png" class="heart_img">
+                            <% reviews.forEach(review => { %>
+                                <div class="review_content">
+                                    <%= review.title %>
+                                    <div class="review_like">
+                                        <%= review.like %>
+                                    </div>
+                                    <img src="image/heart.png" class="heart_img">
+                                </div>
+                                <% }); %>
                         </li>
                     </ol>
                 </div>
 
             </div>
-
-            <div class="padding"></div>
 
             <div class="width_90 center">
                 <table>
