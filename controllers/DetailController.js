@@ -17,40 +17,63 @@ exports.getAllTrails = async (req, res) => {
 };
 
 /** 특정 투월킹 산책로 상세 정보 가져오기 */
-exports.getTWTrailDetails = async (req, res, next) => {
+exports.getTWTrailDetails = async (req, res) => {
     try {
         data = await tw_Trail.findByPk(req.params.id);
         console.log(data);
-        res.render("../views/tw_TrailDetail", {trailDetail: data});
-    } catch (err) {
-        res.status(500).send({
-            message: err.message
-        });
-    } next();
-};
 
-/** 특정 사용자 산책로 상세 정보 가져오기 */
-exports.getUSERTrailDetails = async (req, res, next) => {
-    try {
-        data = await user_Trail.findByPk(req.params.id);
-        console.log(data);
-        res.render("../views/user_TrailDetail", {trailDetail: data});
-    } catch (err) {
-        res.status(500).send({
-            message: err.message
+        reviewList = await review.findAll({
+            attributes: ['title', 'like'],
+            where: {
+                tw_num: req.params.id
+            }
         });
-    } next();
-};
-
-/** 후기 목록 가져오기 (후기 제목과 좋아요 수) */
-exports.getReviewList = async (req, res) => {
-    try {
-        data = await review.findAll();
-        console.log(data);
-        res.render("../views/user_TrailDetail", {reviews: data});
+        
+        console.log(reviewList);
+        res.render("../views/tw_TrailDetail", {trailDetail: data, reviews: reviewList});
     } catch (err) {
         res.status(500).send({
             message: err.message
         });
     }
 };
+
+/** 특정 사용자 산책로 상세 정보 가져오기 */
+exports.getUSERTrailDetails = async (req, res) => {
+    try {
+        data = await user_Trail.findByPk(req.params.id);
+        console.log(data);
+
+        reviewList = await review.findAll({
+            attributes: ['title', 'like'],
+            where: {
+                tw_num: req.params.id
+            }
+        });
+
+        console.log(reviewList);
+        res.render("../views/user_TrailDetail", {trailDetail: data, reviews: reviewList});
+    } catch (err) {
+        res.status(500).send({
+            message: err.message
+        });
+    } 
+};
+
+// /** 후기 목록 가져오기 (후기 제목과 좋아요 수) */
+// exports.getReviewList = async (req, res) => {
+//     try {
+//         const reviewList = await review.findAll({
+//             attributes: ['title', 'like'],
+//             where: {
+//                 tw_name: req.params.id
+//             }
+//         });
+//         console.log(data);
+//         res.render("../views/user_TrailDetail", {reviews: reviewList});
+//     } catch (err) {
+//         res.status(500).send({
+//             message: err.message
+//         });
+//     }
+// };
