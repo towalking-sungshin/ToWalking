@@ -16,6 +16,10 @@ exports.getAllTrails = async (req, res) => {
     }
 };
 
+exports.getAllTrails = async (req, res) => {
+        res.render("../views/trailList");
+};
+
 /** 특정 투월킹 산책로 상세 정보 가져오기 */
 exports.getTWTrailDetails = async (req, res) => {
     try {
