@@ -63,21 +63,3 @@ exports.getUSERTrailDetails = async (req, res) => {
         });
     } 
 };
-
-// /** 후기 목록 가져오기 (후기 제목과 좋아요 수) */
-// exports.getReviewList = async (req, res) => {
-//     try {
-//         const reviewList = await review.findAll({
-//             attributes: ['title', 'like'],
-//             where: {
-//                 tw_name: req.params.id
-//             }
-//         });
-//         console.log(data);
-//         res.render("../views/user_TrailDetail", {reviews: reviewList});
-//     } catch (err) {
-//         res.status(500).send({
-//             message: err.message
-//         });
-//     }
-// };
