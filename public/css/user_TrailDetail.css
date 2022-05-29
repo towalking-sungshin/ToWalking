@@ -37,6 +37,10 @@ body {
     width: 90%;
 }
 
+.width_85 {
+    width: 85%;
+}
+
 .writer_div {
     font-size: 15px;
 }
@@ -113,6 +117,7 @@ body {
 
 .review_content {
     height: 100%;
+    padding-bottom: 5%;
 }
 
 .heart_img {
