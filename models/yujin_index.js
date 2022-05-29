@@ -15,5 +15,4 @@ db.tw_Trail = tw_Trail(sequelize, Sequelize); // 시퀄라이즈에 산책로 �
 db.user_Trail = user_Trail(sequelize, Sequelize); // 시퀄라이즈에 산책로 모델 등록
 db.review = review(sequelize, Sequelize); // 시퀄라이즈에 산책로 후기 모델 등록
 
-
 module.exports = db;
