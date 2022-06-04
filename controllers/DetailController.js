@@ -16,10 +16,6 @@ exports.getAllTrails = async (req, res) => {
     }
 };
 
-exports.getAllTrails = async (req, res) => {
-        res.render("../views/trailList");
-};
-
 /** 특정 투월킹 산책로 상세 정보 가져오기 */
 exports.getTWTrailDetails = async (req, res) => {
     try {
@@ -32,7 +28,6 @@ exports.getTWTrailDetails = async (req, res) => {
                 tw_num: req.params.id
             }
         });
-        
         console.log(reviewList);
         res.render("../views/tw_TrailDetail", {trailDetail: data, reviews: reviewList});
     } catch (err) {
@@ -54,7 +49,6 @@ exports.getUSERTrailDetails = async (req, res) => {
                 tw_num: req.params.id
             }
         });
-
         console.log(reviewList);
         res.render("../views/user_TrailDetail", {trailDetail: data, reviews: reviewList});
     } catch (err) {
