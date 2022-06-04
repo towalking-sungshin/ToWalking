@@ -50,7 +50,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING(45),
         allowNull: true
       },
-      end: { // 끝지 지점
+      end: { // 끝 지점
         type: Sequelize.STRING(45),
         allowNull: true
       },  
