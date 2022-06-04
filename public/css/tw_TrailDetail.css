@@ -130,13 +130,13 @@ body {
 }
 
 .heart_img {
-    width: 4%;
+    width: 5%;
     float: right;
 }
 
 .review_like {
     float: right;
-    margin-right: 5%;
+    margin-right: 4%;
     font-size: small;
 }
 

@@ -117,17 +117,18 @@ body {
 
 .review_content {
     height: 100%;
+    margin-left: -4%;
     padding-bottom: 5%;
 }
 
 .heart_img {
-    width: 4%;
+    width: 5%;
     float: right;
 }
 
 .review_like {
     float: right;
-    margin-right: 8%;
+    margin-right: 6%;
     font-size: small;
 }
 
