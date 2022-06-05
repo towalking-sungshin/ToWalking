@@ -3,12 +3,21 @@ const port = 3000,
     app = express(), // 웹 서버 애플리케이션 할당
     helloController = require("./controllers/helloController"),
     errorController = require("./controllers/errorController"),
+    ListController = require("./controllers/ListController"),
     layouts = require("express-ejs-layouts");
+
 
 app.set("port", process.env.port || 3000);
 app.set("view engine", "ejs"); // 뷰 엔진으로 ejs 선택
-
+app.use("/towalking/list",express.static('resources'));
 app.get("/hello/:name", helloController.helloController);
+
+//app.get("/towalking/list", ListController.getAllTrails);
+app.get("/towalking/list", ListController.trailList);
+app.get("/towalking/list/userList", ListController.userList);
+// app.get("/towalking/list", ListController.trailFilterList);
+// app.get("/towalking/list/:user_tw_geo", FilterController.trailFilterList);
+app.get("/towalking/list/:user_tw_geo", ListController.trailFilterList);
 
 
 /** 에러 처리 */
