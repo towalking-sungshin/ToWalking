@@ -1,4 +1,4 @@
-const db = require(__dirname + "/../models/yujin_index")
+const db = require(__dirname + "/../models/index")
 const user = db.user;
 
 /** 로그인 Get 매핑 */
@@ -23,7 +23,7 @@ exports.loginPost = async (req, res) => {
         if (userData != null) { // 해당 아이디가 db에 존재한다면
             if (userData.user_pw == user_pw) { // 아이디와 비밀번호가 일치한다면
                 console.log("로그인 성공");
-                return res.redirect("/towalking/" + user_id + "/1/tw_detail");
+                return res.redirect("/towalking/" + user_id + "/list");
             } else {
                 console.log("비밀번호가 일치하지 않음");
                 return res.redirect("/towalking/login_noPwPage");
