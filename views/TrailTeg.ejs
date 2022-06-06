@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>산책로 등록 페이지</title>
+</head>
+<style>
+    table.table2 {
+
+        border-collapse: separate;
+        border-spacing: 1px;
+        text-align: left;
+        line-height: 1.5;
+        margin: 20px 10px;
+    }
+
+    table.table2 tr {
+        width: 50px;
+        padding: 20px;
+        font-weight: bold;
+        vertical-align: top;
+    }
+
+    table.table2 td {
+        width: 100px;
+        padding: 10px;
+        vertical-align: top;
+    }
+</style>
+<table style="padding-top:50px; margin:auto; text-align:center; width:355; border:1;">
+
+    <body>
+        <form id="TrailTeg" action="/TrailTeg/:user_id" method="post">
+            <!-- <form id="TrailTeg" action = "/TrailTeg" method="post"> -->
+            <tr>
+                <td>
+                    <h1 style="color:black;  font-size: 26pt; font-weight: bold;">산책로 등록 </h1>
+                </td>
+                <td>
+                    <input type="submit" name="submit" value="등록"
+                        style="font-size:16pt; border:none; color:#F6C30A; padding-right: 10%; background-color: white;">
+                </td>
+            </tr>
+            <tr>
+
+                <body>
+                    <style type="text/css">
+                        /* Set the size of the div element that contains the map */
+                        #map {
+                            height: 200px;
+                            /* The height is 200pixels */
+                            width: 90%;
+                            /* The width is the 50% width of the web page */
+                            text-align: center;
+                            padding-left: 10%;
+                        }
+                    </style>
+                    <script type="text/javascript">
+                        // Initialize and add the map
+                        function initMap() {
+                            var p = { lat: 37.58693610575863, lng: 127.00738311757685 } //낙산공원
+                            var p2 = { lat: 37.5523681, lng: 127.0998464 }  //아차산동행숲길
+                            var p3 = { lat: 37.5475573, lng: 127.0977677 } //광진숲나루
+                            var p4 = { lat: 37.5295996, lng: 127.0685082 } //뚝섬한강공원
+                            var p5 = { lat: 37.529922, lng: 127.068383 } //아차산생태공원
+                            var p6 = { lat: 37.5519, lng: 127.10593 } //워커힐길
+                            var p7 = { lat: 37.5599817, lng: 127.0721272 } //군자교
+                            var p8 = { lat: 37.5562868, lng: 127.0207712 } //대현산배수지공원
+                            var p9 = { lat: 37.5443878, lng: 127.0374424 } //서울숲공원
+                            var p10 = { lat: 37.5481996, lng: 127.0298511 } //응봉산공원
+                            var p11 = { lat: 37.5431904, lng: 127.0215082 } //달맞이 공원
+                            var p12 = { lat: 37.6080217, lng: 127.0705363 } //중랑천하류 산책로
+                            var p13 = { lat: 37.5619031, lng: 127.2075283 } //조정경기장 산책로
+                            var p14 = { lat: 37.468804, lng: 127.1446659 } //창곡천 산책로
+                            var p15 = { lat: 37.6599875, lng: 126.9003695 } //오금 수변 산책로
+                            var p16 = { lat: 37.4733634, lng: 127.181214 } //남한산성 옛길
+                            var p17 = { lat: 37.2757828, lng: 127.1495343 } //동백호수공원
+                            var p18 = { lat: 37.6567441, lng: 126.7662508 } //일산호수공원
+
+
+                            const map = new google.maps.Map(document.getElementById("map"), {
+                                zoom: 10,
+                                center: p,
+                            });
+
+
+                            var marker = new google.maps.Marker({ position: p, map: map });
+                            var marker2 = new google.maps.Marker({ position: p2, map: map });
+                            var marker3 = new google.maps.Marker({ position: p3, map: map });
+                            var marker4 = new google.maps.Marker({ position: p4, map: map });
+                            var marker5 = new google.maps.Marker({ position: p5, map: map });
+                            var marker6 = new google.maps.Marker({ position: p6, map: map });
+                            var marker7 = new google.maps.Marker({ position: p7, map: map });
+                            var marker8 = new google.maps.Marker({ position: p8, map: map });
+                            var marker9 = new google.maps.Marker({ position: p9, map: map });
+                            var marker10 = new google.maps.Marker({ position: p10, map: map });
+                            var marker11 = new google.maps.Marker({ position: p11, map: map });
+                            var marker12 = new google.maps.Marker({ position: p12, map: map });
+                            var marker13 = new google.maps.Marker({ position: p13, map: map });
+                            var marker14 = new google.maps.Marker({ position: p14, map: map });
+                            var marker15 = new google.maps.Marker({ position: p15, map: map });
+                            var marker16 = new google.maps.Marker({ position: p16, map: map });
+                            var marker17 = new google.maps.Marker({ position: p17, map: map });
+                            var marker18 = new google.maps.Marker({ position: p18, map: map });
+                        }
+
+                    </script>
+                </body>
+                <td>
+                    <h3 style="color: grey; font-size: 15px; text-align: left;">[투월킹이 등록한 산책로]</h3>
+                    <!--The div element for the map -->
+                    <div id="map"></div>
+                    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                    <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAchdxx0UCBURjGX_kH_lHqK8ncP4tWPg&callback=initMap&libraries=&v=weekly"
+                        async>
+                        </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="table2">
+                        <tr>
+                            <td>
+                                <input type="num" name="user_tw_num">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" size="25" placeholder="출발"
+                                    style="font-size:15pt; border: 3px solid #F6C30A; padding: 10px 10px 10px 10px; border-radius: 0.5em;"
+                                    onfocus="this.placeholder= ''" onblur="this.placeholder='출발'" name="user_tw_start">
+                                <input type="text" size="25" placeholder="도착"
+                                    style="font-size:15pt; border: 3px solid #F6C30A; padding: 10px 10px 10px 10px; border-radius: 0.5em;"
+                                    onfocus="this.placeholder= ''" onblur="this.placeholder='도착'" name="user_tw_end">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" size="60" placeholder="산책로 이름"
+                                    style="font-size:15pt; border:3px solid #F6C30A; padding:10px 10px 10px 10px; border-radius: 0.5em;"
+                                    onfocus="this.placeholder=''" onblur="this.placeholder='산책로 이름'"
+                                    name="user_tw_name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" size="60" placeholder="지역"
+                                    style="font-size:15pt; border:3px solid #F6C30A; padding:10px 10px 10px 10px; border-radius: 0.5em;"
+                                    onfocus="this.placeholder=''" onblur="this.placeholder='지역'" name="user_tw_geo">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 335px; border:3px solid #F6C30A; border-radius: 0.5em;">
+
+                            <p style="size: 20px;">소요시간</p>
+                            
+                            <p style="margin: 10px;">시간 선택</p>
+                            <label><input type="checkbox" name="user_tw_hour" value="0시간" style="margin: 10px;">0시간</label>
+                            <label><input type="checkbox" name="user_tw_hour" value="1시간" style="margin: 10px;">1시간</label>
+                            <label><input type="checkbox" name="user_tw_hour" value="2시간" style="margin: 10px;">2시간</label>
+                            <label><input type="checkbox" name="user_tw_hour" value="3시간" style="margin: 10px;">3시간</label>
+                            
+                            <p style="margin: 10px;">분 선택</p>
+                            <label><input type="checkbox" name="user_tw_minute" value="00분" style="margin: 10px;">00분</label>
+                            <label><input type="checkbox" name="user_tw_minute" value="10분" style="margin: 10px;">10분</label>
+                            <label><input type="checkbox" name="user_tw_minute" value="20분" style="margin: 10px;">20분</label>
+                            <label><input type="checkbox" name="user_tw_minute" value="30분" style="margin: 10px;">30분</label>
+                            <label><input type="checkbox" name="user_tw_minute" value="40분" style="margin: 10px;">40분</label>
+                            <label><input type="checkbox" name="user_tw_minute" value="50분" style="margin: 10px;">50분</label>
+                            
+                            </td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="width: 335px; border:3px solid #F6C30A; border-radius: 0.5em; ">
+                                    <!-- <font color=black style="font-size: 15pt; font-weight: bold; padding: 10px 50px 10px 50px;">테마 </font> -->
+                            
+                            
+                            
+                                    <p>테마</p>
+                                    <label><input type="checkbox" name="theme" value="반려동물과 함께" style="margin: 10px;">반려동물과 함께</label>
+                                    <label><input type="checkbox" name="theme" value="친구와 신나게" style="margin: 10px;">친구와 신나게</label>
+                                    <label><input type="checkbox" name="theme" value="가족과 이야기 하며" style="margin: 10px;">가족과 이야기 하며</label>
+                                    <label><input type="checkbox" name="theme" value="자전거 타기 좋은" style="margin: 10px;">자전거 타기 좋은</label>
+                                    <label><input type="checkbox" name="theme" value="혼자 사색을 즐기는" style="margin: 10px;">혼자 사색을 즐기는</label>
+                                    <label><input type="checkbox" name="theme" value="주변에 볼거리가 많은" style="margin: 10px;">주변에 볼거리가 많은</label>
+                                    <label><input type="checkbox" name="theme" value="애인과 함께" style="margin: 10px;">애인과 함께</label>
+                                    <label><input type="checkbox" name="theme" value="쉽게 걸을 수 있는" style="margin: 10px;">쉽게 걸을 수 있는</label>
+                                    <label><input type="checkbox" name="theme" value="운동이 되는" style="margin: 10px;">운동이 되는</label>
+                                    <label><input type="checkbox" name="theme" value="활력 넘치는" style="margin: 10px;">활력 넘치는</label>
+
+
+                                <!-- <input type = "checkbox" class="theme" name="theme">  
+                                       <option name="theme" selected>선택하세요</option>
+                                       <option name="theme">반려동물과 함께</option>
+                                       <option name="theme">친구와 신나게</option>
+                                       <option name="theme">가족과 이야기 하며</option>
+                                       <option name="theme">자전거 타기 좋은</option>
+                                       <option name="theme">혼자 사색을 즐기는</option>
+                                       <option name="theme">주변에 볼거리가 많은</option>
+                                       <option name="theme">애인과 함께</option>
+                                       <option name="theme">쉽게 걸을 수 있는</option>
+                                       <option name="theme">운동이 되는</option>
+                                       <option name="theme">활력 넘치는</option>
+                                    </input>
+                                    <input type = "checkbox" class="theme2" name = "theme2" >
+                                       <option name = "theme2" selected>선택하세요</option>
+                                       <option name = "theme2">반려동물과 함께</option>
+                                       <option name = "theme2">친구와 신나게</option>
+                                       <option name = "theme2">가족과 이야기 하며</option>
+                                       <option name = "theme2">자전거 타기 좋은</option>
+                                       <option name = "theme2">혼자 사색을 즐기는</option>
+                                       <option name = "theme2">주변에 볼거리가 많은</option>
+                                       <option name = "theme2">애인과 함께</option>
+                                       <option name = "theme2">쉽게 걸을 수 있는</option>
+                                       <option name = "theme2">운동이 되는</option>
+                                       <option name = "theme2">활력 넘치는</option>
+                                    </input>
+                                    <input type= "checkbox" class = "theme3" name = "theme3">
+                                       <option name = "theme3" selected>선택하세요</option>
+                                       <option name = "theme3">반려동물과 함께</option>
+                                       <option name = "theme3">친구와 신나게</option>
+                                       <option name = "theme3">가족과 이야기 하며</option>
+                                       <option name = "theme3">자전거 타기 좋은</option>
+                                       <option name = "theme3">혼자 사색을 즐기는</option>
+                                       <option name = "theme3">주변에 볼거리가 많은</option>
+                                       <option name = "theme3">애인과 함께</option>
+                                       <option name = "theme3">쉽게 걸을 수 있는</option>
+                                       <option name = "theme3">운동이 되는</option>
+                                       <option name = "theme3">활력 넘치는</option>
+                                    </input> -->
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </form>
+    </body>
+</table>
+
+</html>
