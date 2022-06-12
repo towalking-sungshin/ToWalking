@@ -13,12 +13,12 @@
         border-spacing: 1px;
         text-align: left;
         line-height: 1.5;
-        margin: 20px 10px;
+        margin: 5px 10px;
     }
 
     table.table2 tr {
         width: 50px;
-        padding: 20px;
+        padding: 5px;
         font-weight: bold;
         vertical-align: top;
     }
@@ -32,8 +32,7 @@
 <table style="padding-top:50px; margin:auto; text-align:center; width:355; border:1;">
 
     <body>
-        <form id="TrailTeg" action="/TrailTeg/:user_id" method="post">
-            <!-- <form id="TrailTeg" action = "/TrailTeg" method="post"> -->
+        <form id="TrailTeg" action="/TrailTeg/<%= user_id %>" method="post">
             <tr>
                 <td>
                     <h1 style="color:black;  font-size: 26pt; font-weight: bold;">산책로 등록 </h1>
@@ -122,11 +121,12 @@
             <tr>
                 <td>
                     <table class="table2">
-                        <tr>
-                            <td>
-                                <input type="num" name="user_tw_num">
-                            </td>
-                        </tr>
+                        <!-- <tr>
+                              <td>
+                                 <input type = "num" name = "user_tw_num">
+                              </td>
+               
+                           </tr> -->
                         <tr>
                             <td>
                                 <input type="text" size="25" placeholder="출발"
@@ -155,83 +155,111 @@
                         <tr>
                             <td style="width: 335px; border:3px solid #F6C30A; border-radius: 0.5em;">
 
-                            <p style="size: 20px;">소요시간</p>
-                            
-                            <p style="margin: 10px;">시간 선택</p>
-                            <label><input type="checkbox" name="user_tw_hour" value="0시간" style="margin: 10px;">0시간</label>
-                            <label><input type="checkbox" name="user_tw_hour" value="1시간" style="margin: 10px;">1시간</label>
-                            <label><input type="checkbox" name="user_tw_hour" value="2시간" style="margin: 10px;">2시간</label>
-                            <label><input type="checkbox" name="user_tw_hour" value="3시간" style="margin: 10px;">3시간</label>
-                            
-                            <p style="margin: 10px;">분 선택</p>
-                            <label><input type="checkbox" name="user_tw_minute" value="00분" style="margin: 10px;">00분</label>
-                            <label><input type="checkbox" name="user_tw_minute" value="10분" style="margin: 10px;">10분</label>
-                            <label><input type="checkbox" name="user_tw_minute" value="20분" style="margin: 10px;">20분</label>
-                            <label><input type="checkbox" name="user_tw_minute" value="30분" style="margin: 10px;">30분</label>
-                            <label><input type="checkbox" name="user_tw_minute" value="40분" style="margin: 10px;">40분</label>
-                            <label><input type="checkbox" name="user_tw_minute" value="50분" style="margin: 10px;">50분</label>
-                            
+                                <p style="size: 5px;">소요시간</p>
+
+                                <p style="margin: 10px;">시간 선택</p>
+                                <label><input type="checkbox" name="user_tw_hour" value="0시간"
+                                        style="margin: 10px;">0시간</label>
+                                <label><input type="checkbox" name="user_tw_hour" value="1시간"
+                                        style="margin: 10px;">1시간</label>
+                                <label><input type="checkbox" name="user_tw_hour" value="2시간"
+                                        style="margin: 10px;">2시간</label>
+                                <label><input type="checkbox" name="user_tw_hour" value="3시간"
+                                        style="margin: 10px;">3시간</label>
+
+                                <p style="margin: 10px;">분 선택</p>
+                                <label><input type="checkbox" name="user_tw_minute" value="00분"
+                                        style="margin: 10px;">00분</label>
+                                <label><input type="checkbox" name="user_tw_minute" value="10분"
+                                        style="margin: 10px;">10분</label>
+                                <label><input type="checkbox" name="user_tw_minute" value="20분"
+                                        style="margin: 10px;">20분</label>
+                                <label><input type="checkbox" name="user_tw_minute" value="30분"
+                                        style="margin: 10px;">30분</label>
+                                <label><input type="checkbox" name="user_tw_minute" value="40분"
+                                        style="margin: 10px;">40분</label>
+                                <label><input type="checkbox" name="user_tw_minute" value="50분"
+                                        style="margin: 10px;">50분</label>
+
                             </td>
-                            </tr>
-                            
-                            <tr>
-                                <td style="width: 335px; border:3px solid #F6C30A; border-radius: 0.5em; ">
-                                    <!-- <font color=black style="font-size: 15pt; font-weight: bold; padding: 10px 50px 10px 50px;">테마 </font> -->
-                            
-                            
-                            
-                                    <p>테마</p>
-                                    <label><input type="checkbox" name="theme" value="반려동물과 함께" style="margin: 10px;">반려동물과 함께</label>
-                                    <label><input type="checkbox" name="theme" value="친구와 신나게" style="margin: 10px;">친구와 신나게</label>
-                                    <label><input type="checkbox" name="theme" value="가족과 이야기 하며" style="margin: 10px;">가족과 이야기 하며</label>
-                                    <label><input type="checkbox" name="theme" value="자전거 타기 좋은" style="margin: 10px;">자전거 타기 좋은</label>
-                                    <label><input type="checkbox" name="theme" value="혼자 사색을 즐기는" style="margin: 10px;">혼자 사색을 즐기는</label>
-                                    <label><input type="checkbox" name="theme" value="주변에 볼거리가 많은" style="margin: 10px;">주변에 볼거리가 많은</label>
-                                    <label><input type="checkbox" name="theme" value="애인과 함께" style="margin: 10px;">애인과 함께</label>
-                                    <label><input type="checkbox" name="theme" value="쉽게 걸을 수 있는" style="margin: 10px;">쉽게 걸을 수 있는</label>
-                                    <label><input type="checkbox" name="theme" value="운동이 되는" style="margin: 10px;">운동이 되는</label>
-                                    <label><input type="checkbox" name="theme" value="활력 넘치는" style="margin: 10px;">활력 넘치는</label>
+                        </tr>
 
+                        <tr>
+                            <td style="width: 335px; border:3px solid #F6C30A; border-radius: 0.5em; ">
+                                <!-- <font color=black style="font-size: 15pt; font-weight: bold; padding: 10px 50px 10px 50px;">테마 </font> -->
 
-                                <!-- <input type = "checkbox" class="theme" name="theme">  
-                                       <option name="theme" selected>선택하세요</option>
-                                       <option name="theme">반려동물과 함께</option>
-                                       <option name="theme">친구와 신나게</option>
-                                       <option name="theme">가족과 이야기 하며</option>
-                                       <option name="theme">자전거 타기 좋은</option>
-                                       <option name="theme">혼자 사색을 즐기는</option>
-                                       <option name="theme">주변에 볼거리가 많은</option>
-                                       <option name="theme">애인과 함께</option>
-                                       <option name="theme">쉽게 걸을 수 있는</option>
-                                       <option name="theme">운동이 되는</option>
-                                       <option name="theme">활력 넘치는</option>
-                                    </input>
-                                    <input type = "checkbox" class="theme2" name = "theme2" >
-                                       <option name = "theme2" selected>선택하세요</option>
-                                       <option name = "theme2">반려동물과 함께</option>
-                                       <option name = "theme2">친구와 신나게</option>
-                                       <option name = "theme2">가족과 이야기 하며</option>
-                                       <option name = "theme2">자전거 타기 좋은</option>
-                                       <option name = "theme2">혼자 사색을 즐기는</option>
-                                       <option name = "theme2">주변에 볼거리가 많은</option>
-                                       <option name = "theme2">애인과 함께</option>
-                                       <option name = "theme2">쉽게 걸을 수 있는</option>
-                                       <option name = "theme2">운동이 되는</option>
-                                       <option name = "theme2">활력 넘치는</option>
-                                    </input>
-                                    <input type= "checkbox" class = "theme3" name = "theme3">
-                                       <option name = "theme3" selected>선택하세요</option>
-                                       <option name = "theme3">반려동물과 함께</option>
-                                       <option name = "theme3">친구와 신나게</option>
-                                       <option name = "theme3">가족과 이야기 하며</option>
-                                       <option name = "theme3">자전거 타기 좋은</option>
-                                       <option name = "theme3">혼자 사색을 즐기는</option>
-                                       <option name = "theme3">주변에 볼거리가 많은</option>
-                                       <option name = "theme3">애인과 함께</option>
-                                       <option name = "theme3">쉽게 걸을 수 있는</option>
-                                       <option name = "theme3">운동이 되는</option>
-                                       <option name = "theme3">활력 넘치는</option>
-                                    </input> -->
+                                <p>테마 1 선택</p>
+                                <label><input type="checkbox" name="theme" value="#반려동물과 함께" style="margin: 10px;">반려동물과
+                                    함께</label>
+                                <label><input type="checkbox" name="theme" value="#친구와 신나게" style="margin: 5px;">친구와
+                                    신나게</label>
+                                <label><input type="checkbox" name="theme" value="#가족과 이야기 하며" style="margin: 5px;">가족과
+                                    이야기 하며</label>
+                                <label><input type="checkbox" name="theme" value="#자전거 타기 좋은" style="margin: 5px;">자전거
+                                    타기 좋은</label>
+                                <br>
+                                <label><input type="checkbox" name="theme" value="#혼자 사색을 즐기는" style="margin: 10px;">혼자
+                                    사색을 즐기는</label>
+                                <label><input type="checkbox" name="theme" value="#주변에 볼거리가 많은" style="margin: 5px;">주변에
+                                    볼거리가 많은</label>
+                                <label><input type="checkbox" name="theme" value="#애인과 함께" style="margin: 5px;">애인과
+                                    함께</label>
+                                <label><input type="checkbox" name="theme" value="#쉽게 걸을 수 있는" style="margin: 5px;">쉽게
+                                    걸을 수 있는</label>
+                                <br>
+                                <label><input type="checkbox" name="theme" value="#운동이 되는" style="margin: 10px;">운동이
+                                    되는</label>
+                                <label><input type="checkbox" name="theme" value="#활력 넘치는" style="margin: 5px;">활력
+                                    넘치는</label>
+
+                                <p>테마 2 선택</p>
+                                <label><input type="checkbox" name="theme2" value="#반려동물과 함께"
+                                        style="margin: 10px;">반려동물과 함께</label>
+                                <label><input type="checkbox" name="theme2" value="#친구와 신나게" style="margin: 5px;">친구와
+                                    신나게</label>
+                                <label><input type="checkbox" name="theme2" value="#가족과 이야기 하며" style="margin: 5px;">가족과
+                                    이야기 하며</label>
+                                <label><input type="checkbox" name="theme2" value="#자전거 타기 좋은" style="margin: 5px;">자전거
+                                    타기 좋은</label>
+                                <br>
+                                <label><input type="checkbox" name="theme2" value="#혼자 사색을 즐기는" style="margin: 10px;">혼자
+                                    사색을 즐기는</label>
+                                <label><input type="checkbox" name="theme2" value="#주변에 볼거리가 많은"
+                                        style="margin: 5px;">주변에 볼거리가 많은</label>
+                                <label><input type="checkbox" name="theme2" value="#애인과 함께" style="margin: 5px;">애인과
+                                    함께</label>
+                                <label><input type="checkbox" name="theme2" value="#쉽게 걸을 수 있는" style="margin: 5px;">쉽게
+                                    걸을 수 있는</label>
+                                <br>
+                                <label><input type="checkbox" name="theme2" value="#운동이 되는" style="margin: 10px;">운동이
+                                    되는</label>
+                                <label><input type="checkbox" name="theme2" value="#활력 넘치는" style="margin: 5px;">활력
+                                    넘치는</label>
+
+                                <p>테마 3 선택</p>
+                                <label><input type="checkbox" name="theme3" value="#반려동물과 함께"
+                                        style="margin: 10px;">반려동물과 함께</label>
+                                <label><input type="checkbox" name="theme3" value="#친구와 신나게" style="margin: 5px;">친구와
+                                    신나게</label>
+                                <label><input type="checkbox" name="theme3" value="#가족과 이야기 하며" style="margin: 5px;">가족과
+                                    이야기 하며</label>
+                                <label><input type="checkbox" name="theme3" value="#자전거 타기 좋은" style="margin: 5px;">자전거
+                                    타기 좋은</label>
+                                <br>
+                                <label><input type="checkbox" name="theme3" value="#혼자 사색을 즐기는" style="margin: 10px;">혼자
+                                    사색을 즐기는</label>
+                                <label><input type="checkbox" name="theme3" value="#주변에 볼거리가 많은"
+                                        style="margin: 5px;">주변에 볼거리가 많은</label>
+                                <label><input type="checkbox" name="theme3" value="#애인과 함께" style="margin: 5px;">애인과
+                                    함께</label>
+                                <label><input type="checkbox" name="theme3" value="#쉽게 걸을 수 있는" style="margin: 5px;">쉽게
+                                    걸을 수 있는</label>
+                                <br>
+                                <label><input type="checkbox" name="theme3" value="#운동이 되는" style="margin: 10px;">운동이
+                                    되는</label>
+                                <label><input type="checkbox" name="theme3" value="#활력 넘치는" style="margin: 5px;">활력
+                                    넘치는</label>
+
                             </td>
                         </tr>
                     </table>

@@ -2,16 +2,16 @@ const Sequelize = require('sequelize');
 
 module.exports = (sequelize, Sequelize) => {
 
-  const user_tw_table = sequelize.define("user_tw_table", {
+  const user_Trail = sequelize.define("user_Trail", {
       user_tw_num: { // 산책로 번호
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique:true,
+        primaryKey: true
       },
       user_tw_name: { // 산책로 이름
         type: Sequelize.STRING(45),
         allowNull: false,
-        unique:true,
-        primaryKey: true
       },
       user_id: { // 사용자 아이디
         type: Sequelize.STRING(45),
@@ -61,20 +61,15 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING(45),
         allowNull:true
       }
-
-      // map: { 
-      //   type: Sequelize.STRING(1000),
-      //   allowNull: true
-      // }  
   },
   {
       timestamps: false,
       underscored: false,
-      modelName: 'user_tw_table',
+      modelName: 'user_Trail',
       tableName: 'user_tw_table',
       paranoid: true,
       charset: 'utf8',
       collate: 'utf8_general_ci',
     });
-    return user_tw_table;
+    return user_Trail;
   }
