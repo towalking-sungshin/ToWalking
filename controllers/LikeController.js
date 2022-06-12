@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const db= require(__dirname + "/../models/index")
 const tw_Trail = db.tw_Trail;
 const user_Trail = db.user_Trail;
@@ -20,8 +22,7 @@ exports.updateLike = async (req,res)=>{
 
         if (already) {
             console.log('이미 공감을 눌렀습니다.')
-            // return res.redirect("/towalking/" + user_id + "/list");
-            return res.render("../views/already_like_listPage");
+            return res.redirect("/towalking/" + user_id + "/list");
         }
 
          else {
