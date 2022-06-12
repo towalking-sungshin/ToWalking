@@ -21,7 +21,7 @@ exports.updateLike = async (req,res)=>{
         if (already) {
             console.log('이미 공감을 눌렀습니다.')
             // return res.redirect("/towalking/" + user_id + "/list");
-            return req.render("../views/already_like_listPage");
+            return res.render("../views/already_like_listPage");
         }
 
          else {
