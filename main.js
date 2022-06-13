@@ -18,6 +18,7 @@ app.get("/towalking/list/userList", ListController.userList);
 // app.get("/towalking/list", ListController.trailFilterList);
 // app.get("/towalking/list/:user_tw_geo", FilterController.trailFilterList);
 app.get("/towalking/list/:user_tw_geo", ListController.trailFilterList);
+app.get("/towalking/list/userList/:user_tw_geo", ListController.trailFilterUserList);
 
 
 /** 에러 처리 */
