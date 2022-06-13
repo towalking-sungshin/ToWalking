@@ -17,36 +17,78 @@
 <link rel = "stylesheet" href="./main.css">
 
 <script type="text/javascript">
+  //정적변수 check 선언하기 
+  // 해결 X, 사용자 등록 페이지에서 계속 다른 구 누르면 해당 구의 투월킹 페이지로 이동!! 
+  // check문제 : 0으로 default값 해두었는데 페이지 바뀌니 다시 default값으로 변경됨
+  // >> 해결 완료 : 실행 전 함수 선언 (현재 페이지 url에 해당 키워드 들어가 있으면 check값 변경)
+
+  // 지금 아예 다른 페이지로 이동하여 check가 디폴트값인 0으로 바뀌어서 
+  // 사용자 등록 데이터를 올바르게 가져와도 틀이 투월킹 산책로로 되어 있어 표시 안됨!
+  // >> 해결 완료 : 실행 전 함수 선언 (사용자 등록 페이지 틀로 보여줌!)
+  var check =0;
+  $(document).ready(function() {
+    if (window.location.href.indexOf("userList") != -1) {
+      check=1;
+      document.getElementById("changingPage").style.display='none';
+      document.getElementById("userPage").style.display='block';
+    }
+  });
+  //console.log(check);
+
   function getGeo(num){
+    const btnName = document.getElementById("dropdownBtn");
     if(num==null){
       return;
     }
+    else if(num==3){
+      if(check==0){
+        location.replace("/towalking/list");
+      }
+      else if(check==1){
+        location.replace("/towalking/list/userList/#");
+      }
+      return;
+    }
     else{
-
-      var strGeo = document.getElementsByClassName("dropdown-item")[num].text;
-      console.log(strGeo);
-
-      document.getElementById("showList").style.display='none';
-      
-      location.replace("/towalking/list/"+strGeo);
-
-      const btnName = document.getElementById("dropdownBtn");
+      var strGeo = document.getElementsByClassName("dropdown-item")[num+1].text;
       btnName.innerText=strGeo;
+      //console.log(strGeo);
+      //document.getElementById("showList").style.display='none';
+      if(check==0){
+        location.replace("/towalking/list/"+strGeo);
+        //btnName.innerText=strGeo;
+      }
+      else if(check==1){
+        //location.href='/towalking/list/userList#/'+strGeo;
+        //console.log(check);
+        //console.log(strGeo);
+        
+        location.replace("/towalking/list/userList/"+strGeo);
+
+        //window.location.href="/towalking/list/userList#/"+strGeo;
+        //btnName.innerText=strGeo;
+      }
+
+      //const btnName = document.getElementById("dropdownBtn");
+      //btnName.innerText=strGeo;
       //버튼 누른 내용 그대로 두는 코드 >> 하지만 지금 실행이 안된다!!! 0.0
     }
   }
 
   function changePage(num){
     if(num==0){
+      check = 0;
       document.getElementById("changingPage").style.display='block';
       document.getElementById("userPage").style.display='none';
       location.replace("/towalking/list/");
 
     }
     else if(num==1){
+      check=1;
       document.getElementById("changingPage").style.display='none';
       document.getElementById("userPage").style.display='block';
-      location.replace("/towalking/list/userList");
+      //location.href ='/towalking/list/userList#';
+      location.replace("/towalking/list/userList/#");
     }
   }
 
@@ -160,7 +202,7 @@
     </div>
     <div class="col">
     <li class="nav-item">
-      <a class="nav-link active" href="#" onclick="changePage(1)">사용자</a>
+      <a class="nav-link active" aria-current="page" href="#" onclick="changePage(1)">사용자</a>
     </li>
     </div>
   </div>
@@ -175,6 +217,7 @@
       구 선택
     </button>
     <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" value = "전체" id="geo" onclick="getGeo(3)">전체</a>
       <a class="dropdown-item" href="#" value = "성북구" id="geo" onclick="getGeo(0)">성북구</a>
       <a class="dropdown-item" href="#" value = "성동구" id="geo" onclick="getGeo(1)">성동구</a>
       <a class="dropdown-item" href="#" value = "중구" id="geo" onclick="getGeo(2)">중구</a>
@@ -219,16 +262,13 @@
         </div>
         <div style="float: left; width: 70%; padding:10px; text-align: left;">
           <%= trail.user_tw_name %>
-          <%= trail.user_id %>
 
+        </div>  
+        <div style="padding:10px; margin-bottom:-30px; text-align: right;">
+          <%= trail.user_id %>
         </div>
-        <div style="float: left; width: 20%; padding:10px;">
-          <%= trail.like %>
-        </div>
-  
       <br>
-      <img src=
-      <%= trail.user_tw_pic %> width="300",height="250"     />
+  
       <hr>
   
     <% }) %>
