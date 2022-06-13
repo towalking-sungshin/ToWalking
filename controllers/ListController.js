@@ -23,7 +23,7 @@ exports.trailList = async (req,res)=>{
 exports.userList = async (req,res)=>{
     try{
         data = await user_Trail.findAll({
-            attributes:['user_tw_num', 'user_tw_name','user_id','user_tw_geo','user_tw_pic','like']
+            attributes:['user_tw_num', 'user_tw_name','user_id','user_tw_geo','like']
 
         });
         console.log(data);
@@ -33,21 +33,37 @@ exports.userList = async (req,res)=>{
             message:err.message
         });
     }
-}
+};
 
 exports.trailFilterList = async (req,res)=>{
     try{
         data = await tw_Trail.findAll({
-            attributes:['tw_num', 'tw_name', 'tw_pic', 'like'],
+            attributes:['tw_num', 'tw_name', 'tw_pic', 'like','tw_geo'],
             where: {
-                tw_geo: req.params.tw_geo //여기선 이거!?
+                tw_geo: req.params.user_tw_geo
             }
         });
         
         console.log(data);
-        //res.render("../views/main_geo",{trails:data});
         res.render("../views/main",{trails:data});
-        //res.render("../views/main",{filterTrails:data});
+    }catch(err){
+        res.status(500).send({
+            message:err.message
+        });
+    }
+};
+
+exports.trailFilterUserList = async (req,res)=>{
+    try{
+        data = await user_Trail.findAll({
+            attributes:['user_tw_num', 'user_tw_name','user_id','user_tw_geo','like'],
+            where: {
+                user_tw_geo: req.params.user_tw_geo
+            }
+        });
+        
+        console.log(data);
+        res.render("../views/main",{trails:data});
     }catch(err){
         res.status(500).send({
             message:err.message
