@@ -1,0 +1,47 @@
+const db = require("../models/index"),
+    user_review = db.user_review,
+    tw_review = db.tw_review;
+
+// 사용자 등록 산책로 후기 저장 
+exports.user_saveReview = async(req,res) => {
+    try {
+        var num = Math.floor(Math.random()*100) +1;
+        console.log(num);
+        await user_review.create({
+            review_num: num,
+            user_num: req.params.id,
+            user_id: req.params.user_id,
+            title : req.body.reviewTitle,
+            content : req.body.reviewContents
+            // 별점, 난이도 추가
+        });
+        console.log("성공");
+        return res.redirect("/towalking/" + req.params.user_id + "/" +  req.params.id + "/user_detail");
+    } catch (err) {
+        res.status(500).send({
+            messae : err.messae
+        });
+    }
+}
+
+// 투월킹 제공 산책로 후기 저장
+exports.tw_saveReview = async(req,res) => {
+    try {
+        var num = Math.floor(Math.random()*100) +1;
+        console.log(num);
+        await tw_review.create({
+            review_num: num,
+            tw_num: req.params.id,
+            user_id: req.params.user_id,
+            title : req.body.reviewTitle,
+            content : req.body.reviewContents
+            // 별점, 난이도 추가
+        });
+        console.log("성공");
+        return res.redirect("/towalking/" + req.params.user_id + "/" +  req.params.id + "/tw_detail");
+    } catch (err) {
+        res.status(500).send({
+            messae : err.messae
+        });
+    }
+}
