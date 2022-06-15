@@ -6,7 +6,11 @@ const port = 3000,
     DetailController = require("./controllers/DetailController"),
     TrailTegController = require("./controllers/TrailTegController"),
     ListController = require("./controllers/ListController"),
+    ReviewController = require("./controllers/ReviewController"),
     LikeController = require("./controllers/LikeController")
+
+    layout = require("express-ejs-layouts");
+    db = require("./models/index");
 
 const bodyParser = require('body-parser'); // 바디 파서 (Post Mapping)
 const flash = require("connect-flash");
@@ -35,8 +39,14 @@ const flash = require("connect-flash");
     /** tw_num에 맞는 산책로의 정보를 가져옴 */
     app.get("/towalking/:user_id/:id/user_detail", DetailController.getUSERTrailDetails);
 
+    /**[사용자] 산책로 등록 페이지 */
     app.get("/TrailTeg/:user_id", TrailTegController.getTrailTeg);
     app.post("/TrailTeg/:user_id", TrailTegController.saveTrailTeg);
+
+    /**[사용자] 산책로 리뷰 상세 페이지 */
+    app.get("/userReview/:id",ReviewController.getUserReviewList);
+    app.get("/twReview/:id",ReviewController.getTwReviewList);
+
 
     app.post("/towalking/:user_id/:id/trail/like", LikeController.updateLike);
 

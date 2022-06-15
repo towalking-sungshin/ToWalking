@@ -30,10 +30,7 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: false,
         defaultValue: 0
       },
-      level: { // 난이도
-        type: Sequelize.INTEGER(45),
-        allowNull: true
-      },
+    
       title: { // 후기 제목
         type: Sequelize.STRING(45),
         allowNull: true
