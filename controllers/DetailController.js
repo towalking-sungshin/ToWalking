@@ -1,8 +1,7 @@
 const db = require(__dirname + "/../models/index")
 const tw_Trail = db.tw_Trail;
 const user_Trail = db.user_Trail;
-const tw_review = db.tw_review;
-const user_review = db.user_review;
+const review = db.review;
 
 /** 산책로 리스트 가져오기 */
 exports.getAllTrails = async (req, res) => {
@@ -23,7 +22,7 @@ exports.getTWTrailDetails = async (req, res) => {
         data = await tw_Trail.findByPk(req.params.id);
         console.log(data);
 
-        reviewList = await tw_review.findAll({
+        reviewList = await review.findAll({
             attributes: ['title', 'like'],
             where: {
                 tw_num: req.params.id
@@ -44,10 +43,10 @@ exports.getUSERTrailDetails = async (req, res) => {
         data = await user_Trail.findByPk(req.params.id);
         console.log(data);
 
-        reviewList = await user_review.findAll({
+        reviewList = await review.findAll({
             attributes: ['title', 'like'],
             where: {
-                user_num: req.params.id
+                tw_num: req.params.id
             }
         });
         console.log(reviewList);

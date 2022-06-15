@@ -6,7 +6,9 @@ const port = 3000,
     DetailController = require("./controllers/DetailController"),
     TrailTegController = require("./controllers/TrailTegController"),
     ListController = require("./controllers/ListController"),
-    LikeController = require("./controllers/LikeController")
+    LikeController = require("./controllers/LikeController"),
+    writereviewController = require("./controllers/writeReviewController"),
+    saveReviewController = require("./controllers/saveReviewController");
 
 const bodyParser = require('body-parser'); // 바디 파서 (Post Mapping)
 const flash = require("connect-flash");
