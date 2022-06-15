@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="css/tw_TrailDetail.css" rel="stylesheet" type="text/css" />
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
+        .titleFont {
+            font-family: 'Hanna', sans-serif;
+            color: #FFD200;
+            font-size: 20px;
+        }
+
+        .centeringContainer {
+            text-align: center;
+            horizontal-align: middle;
+        }
+
+        .navbarDefaultFont {
+            font-size: 13px;
+        }
+
+        .putaspace {
+            margin-right: 40px;
+            margin-top: 10px;
+        }
+
+        .others {
+            margin-top: 12px;
+        }
+
+        .navbarExtra {
+            line-height: 5px;
+        }
+
+        .iconplace {
+            margin-left: 105px;
+        }
+
+        .iconspace2 {
+            margin-left: 5px;
+        }
+
+        input {
+            width: 250px;
+            height: 32px;
+            font-size: 15px;
+            border: 0;
+            border-radius: 8px;
+            outline: none;
+            padding-left: 10px;
+            background-color: rgb(233, 233, 233);
+        }
+
+        .styled {
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            width: 250px;
+            color: #fff;
+            border-radius: 20px;
+            background-color: #FFD200;
+        }
+
+
+        .navbar-inner {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-default navbarExtra navbar-white navbar-inner">
+        <div class="container-fluid center-block" style='width:500px;'>
+            <a class="navbar-brand putaspace" href="/towalking/<%= user_id %>/list">
+                <p class="titleFont">투월킹</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse others" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/TrailTeg/<%= user_id %>">
+                            <p class="navbarDefaultFont">산책로 등록</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <p class="navbarDefaultFont">산책로 순위</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <div class="container center">
+
+        <nav class="top_nav center width_90">
+
+            <div class="top_back inline">
+                <img src="image/back.png" class="back_img">
+            </div>
+
+            <div class="top_name inline center">
+                <%= trailDetail.user_tw_name %>
+            </div>
+
+            <div class="top_review inline">
+                후기 목록
+            </div>
+
+        </nav>
+    
+        <br>
+
+        <div class="writer center width_90">
+
+            <div class="writer_div inline">글쓴이: </div>
+            <div class="writer_div inline"><%= trailDetail.user_tw_name %></div>
+
+
+        </div>
+
+        <div class="center width_90">
+
+            <div class="tag inline"><%= trailDetail.theme %>
+            </div>
+            <div class="tag inline"><%= trailDetail.theme2 %>
+            </div>
+            <div class="tag inline"><%= trailDetail.theme3 %>
+            </div>
+
+
+            </div>
+
+            <br>
+
+        <div class="center width_85">
+
+            <div class="padding"></div>
+
+            <table>
+                <tr>
+                    <td class="placeholder_img_td"><img src="image//placeholder.png" class="placeholder"></td>
+                    <td>출발</td>
+                    <td><%= trailDetail.user_tw_start %></td>
+                </tr>
+                <tr>
+                    <td class="placeholder_img_td"><img src="image/placeholder.png" class="placeholder"></td>
+                    <td>도착</td>
+                    <td><%= trailDetail.user_tw_end %></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <br>
+
+            <div class="padding"></div>
+
+            <div class="width_85 center">
+                <table>
+                    <tr>
+                        <td class="placeholder_img_td"><img src="image/review.png" class="placeholder"></td>
+                        <td>후기</td>
+                        <td class="more_review_text">자세히</td>
+                        <td class="more_review_img"><img src="image/more_review.png" class="placeholder"></td>
+                    </tr>
+                </table>
+                <br>
+                <div>
+                    <ol class="review_group">
+                        <li class="review_item">
+                            <% reviews.forEach(review => { %>
+                                <div class="review_content">
+                                    <%= review.title %>
+                                    <div class="review_like">
+                                        <%= review.like %>
+                                    </div>
+                                    <img src="image/heart.png" class="heart_img">
+                                </div>
+                                <% }); %>
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <div class="padding"></div>
+
+        </div>
+
+
+</body>
+
+</html>
