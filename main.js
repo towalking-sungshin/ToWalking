@@ -43,7 +43,8 @@ const flash = require("connect-flash");
     app.use("/towalking/:user_id/list", express.static('public'));
     app.get("/towalking/:user_id/list", ListController.trailList); // 투월킹 제공 산책로 리스트
     app.get("/towalking/:user_id/list/userList", ListController.userList); // 사용자 등록 산책로 리스트
-    app.get("/towalking/:user_id/list/:user_tw_geo", ListController.trailFilterList); // 지역별 필터링
+    app.get("/towalking/:user_id/list/:user_tw_geo", ListController.trailFilterList); // 투월킹 제공 산책로 지역 필터링
+    app.get("/towalking/list/userList/:user_tw_geo", ListController.trailFilterUserList); // 사용자 등록 산책로 지역 필터링
 
 /** 에러 처리 */
 app.use(errorController.logError);
