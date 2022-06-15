@@ -49,3 +49,20 @@ exports.trailFilterList = async (req,res)=>{
         });
     }
 };
+
+exports.trailFilterUserList = async (req,res)=>{
+    try{
+        data = await user_Trail.findAll({
+            attributes:['user_tw_num', 'user_tw_name','user_id','user_tw_geo','like'],
+            where: {
+                user_tw_geo: req.params.user_tw_geo
+            }
+        });
+        
+        console.log(data);
+        res.render("../views/main",{user_id: req.params.user_id, trails:data});
+    }catch(err){
+        res.status(500).send({
+            message:err.message
+        });
+    }

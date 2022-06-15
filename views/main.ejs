@@ -1,57 +1,98 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 
-    <script src="./resources/js/jquery-3.5.1.min.js"></script>
-    <script src="./resources/js/bootstrap.bundle.min.js"></script>
+<script src="./resources/js/jquery-3.5.1.min.js"></script>
+<script src="./resources/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="./main.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel = "stylesheet" href="./main.css">
 
-    <script type="text/javascript">
-        function getGeo(num) {
-            if (num == null) {
-                return;
-            }
-            else {
-                var strGeo = document.getElementsByClassName("dropdown-item")[num].text;
-                console.log(strGeo);
-                document.getElementById("showList").style.display = 'none';
+<script type="text/javascript">
+  //정적변수 check 선언하기 
+  // 해결 X, 사용자 등록 페이지에서 계속 다른 구 누르면 해당 구의 투월킹 페이지로 이동!! 
+  // check문제 : 0으로 default값 해두었는데 페이지 바뀌니 다시 default값으로 변경됨
+  // >> 해결 완료 : 실행 전 함수 선언 (현재 페이지 url에 해당 키워드 들어가 있으면 check값 변경)
 
-                location.replace("/towalking/<%= user_id %>/list/" + strGeo);
-                const btnName = document.getElementById("dropdownBtn");
-                btnName.innerText = strGeo;
-                //버튼 누른 내용 그대로 두는 코드 >> 하지만 지금 실행이 안된다!!! 0.0
-            }
-        }
-        function changePage(num) {
-            if (num == 0) {
-                document.getElementById("changingPage").style.display = 'block';
-                document.getElementById("userPage").style.display = 'none';
-                location.replace("/towalking/<%= user_id %>/list");
-            }
-            else if (num == 1) {
-                document.getElementById("changingPage").style.display = 'none';
-                document.getElementById("userPage").style.display = 'block';
-                location.replace("/towalking/<%= user_id %>/list/userList");
-            }
-        }
-    </script>
+  // 지금 아예 다른 페이지로 이동하여 check가 디폴트값인 0으로 바뀌어서 
+  // 사용자 등록 데이터를 올바르게 가져와도 틀이 투월킹 산책로로 되어 있어 표시 안됨!
+  // >> 해결 완료 : 실행 전 함수 선언 (사용자 등록 페이지 틀로 보여줌!)
+  var check =0;
+  $(document).ready(function() {
+    if (window.location.href.indexOf("userList") != -1) {
+      check=1;
+      document.getElementById("changingPage").style.display='none';
+      document.getElementById("userPage").style.display='block';
+    }
+  });
+  //console.log(check);
+
+  function getGeo(num){
+    const btnName = document.getElementById("dropdownBtn");
+    if(num==null){
+      return;
+    }
+    else if(num==3){
+      if(check==0){
+        location.replace("/towalking/list");
+      }
+      else if(check==1){
+        location.replace("/towalking/list/userList/#");
+      }
+      return;
+    }
+    else{
+      var strGeo = document.getElementsByClassName("dropdown-item")[num+1].text;
+      btnName.innerText=strGeo;
+      //console.log(strGeo);
+      //document.getElementById("showList").style.display='none';
+      if(check==0){
+        location.replace("/towalking/list/"+strGeo);
+        //btnName.innerText=strGeo;
+      }
+      else if(check==1){
+        //location.href='/towalking/list/userList#/'+strGeo;
+        //console.log(check);
+        //console.log(strGeo);
+        
+        location.replace("/towalking/list/userList/"+strGeo);
+
+        //window.location.href="/towalking/list/userList#/"+strGeo;
+        //btnName.innerText=strGeo;
+      }
+
+      //const btnName = document.getElementById("dropdownBtn");
+      //btnName.innerText=strGeo;
+      //버튼 누른 내용 그대로 두는 코드 >> 하지만 지금 실행이 안된다!!! 0.0
+    }
+  }
+
+  function changePage(num){
+    if(num==0){
+      check = 0;
+      document.getElementById("changingPage").style.display='block';
+      document.getElementById("userPage").style.display='none';
+      location.replace("/towalking/list/");
+
+    }
+    else if(num==1){
+      check=1;
+      document.getElementById("changingPage").style.display='none';
+      document.getElementById("userPage").style.display='block';
+      //location.href ='/towalking/list/userList#';
+      location.replace("/towalking/list/userList/#");
+    }
+  }
+
+</script>
 
     <style>
         @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
@@ -185,17 +226,16 @@
     <div style="border:1px solid; margin: 0 auto; width:30%; text-align:center;  padding:10px;">
 
         <div class="dropdown" style="text-align:left;">
-            <button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown"
-                id="dropdownBtn">
-                구 선택
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#" value="성북구" id="geo" onclick="getGeo(0)">성북구</a>
-                <a class="dropdown-item" href="#" value="성동구" id="geo" onclick="getGeo(1)">성동구</a>
-                <a class="dropdown-item" href="#" value="중구" id="geo" onclick="getGeo(2)">중구</a>
-            </div>
-        </div>
-
+    <button class="btn btn-default dropdown-toggle btn-sm" type="button" data-toggle="dropdown" id="dropdownBtn">
+      구 선택
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#" value = "전체" id="geo" onclick="getGeo(3)">전체</a>
+      <a class="dropdown-item" href="#" value = "성북구" id="geo" onclick="getGeo(0)">성북구</a>
+      <a class="dropdown-item" href="#" value = "성동구" id="geo" onclick="getGeo(1)">성동구</a>
+      <a class="dropdown-item" href="#" value = "중구" id="geo" onclick="getGeo(2)">중구</a>
+    </div>
+  </div>
 
         <div id="changingPage">
             <div id="showList">
@@ -208,7 +248,7 @@
                     </div>
                 </a>
                     <div>
-                        <form action="/towalking/<%= user_id %>/<%= trail.tw_num %>/twtrail/like" method="post">
+                        <form action="/towalking/<%= user_id %>/<%= trail.tw_num %>/trail/like" method="post">
                             <input type="submit" value="공감">
                         </form>
                     </div>
