@@ -30,7 +30,7 @@ exports.getTWTrailDetails = async (req, res) => {
             }
         });
         console.log(reviewList);
-        res.render("../views/tw_TrailDetail", {user_id: req.params.user_id, trailDetail: data, reviews: reviewList});
+        res.render("../views/tw_TrailDetail", {id: req.params.id, user_id: req.params.user_id, trailDetail: data, reviews: reviewList});
     } catch (err) {
         res.status(500).send({
             message: err.message
