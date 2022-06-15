@@ -43,7 +43,7 @@ module.exports = (sequelize, Sequelize) => {
   {
       timestamps: false,
       underscored: false,
-      modelName: 'Review',
+      modelName: 'review',
       tableName: 'review_table',
       paranoid: true,
       charset: 'utf8',

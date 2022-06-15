@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/writereview.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    body {
+    width : 1440px;
+    height: auto;
+    margin: 0px;
+    background-color: #eeeeee;
+    font-size: 15px; 
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+.main{
+    background-color: #eeeeee;
+    font-size: 15px; 
+}
+
+.navigationBar{
+    width : auto;
+    height: 71px;
+    background-color: #FFFFFF;
+    
+} 
+
+.Toowalking {
+    position : absolute;
+    width: auto;
+    top: 16px;
+    bottom : 10px;
+    left : 500px;
+    font-size: 26px;
+    display: inline-block;
+
+}
+
+.menu {
+    display: inline-block;
+    position: relative;
+    left: 55px;
+    
+    vertical-align: middle;
+    
+}
+
+ul {
+    list-style: none;
+    margin : 0;
+    
+}
+
+li {
+    float:left;
+}
+
+.menuItem {
+    float: left;
+    margin-right: 40px;
+    
+}
+
+.container {
+    width: 375px;
+    height: 772px;
+    background-color: #FFFFFF ; 
+    position: absolute;
+    left : 532px;
+    justify-content: center;
+}
+
+.header {
+    display: inline;
+    position: relative;
+    margin : auto;
+    width: 100%;
+    top : 8px;
+    
+    
+}
+
+table {
+    margin:auto;
+}
+
+.headerTable {
+    width: 100%;
+    justify-content: middle;
+    /* margin-left : 20px; */
+    /* margin-right : 10px; */
+}
+
+.headerIcon {
+    float: left;
+    width : 111px;
+    position : relative;
+    
+}
+
+.close {
+    /* padding-right : 10px; */
+    margin-left: 10px;
+}
+
+.closeBtn{
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 24
+}
+.closeBtn {
+    width: 22px;
+    height: 22px;
+    
+}
+
+.review {
+    text-align: center;
+}
+
+.complete {
+    text-align: right;
+
+}
+
+.completeBtn {
+    border : 0;
+    outline: 0;
+    background-color:transparent;
+}
+
+.itemName {
+    position : absolute;
+    top : 60px;
+    width: 100%;
+    text-align: center;   
+    font-size: 20px; 
+    
+}
+
+.itemNameText {
+    display: inline-block;
+    background-color: #F6c30a;
+    font-style: bold;
+}
+
+.inputBox {
+    border-color: #F6c30a;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    width : 342.04px;
+    margin : auto;
+}
+
+.inputTitle {
+    position : relative;
+    top : 80px;
+    height: 56px;
+
+}
+
+.inputContent {
+    position: relative;
+    top : 120px;
+    height: 226px;
+
+}
+.uploadImg {
+    position : relative;
+    top : 170px;
+    width: 100%;
+}
+
+.uploadImgBtn {
+   display: block;
+   width : 343px;
+   height: 53px;
+   margin : auto;
+   border-style: none;
+   border-radius: 100px;
+}
+
+
+.starScore {
+    position: relative;
+    width : 343px;
+    height: 56px;
+    top : 220px;
+    border-color: #F6c30a;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    margin : auto;
+    padding: 0 auto;
+
+}
+
+.starScoreTable {
+    /* display: inline; */
+    margin : auto;
+    margin-top: 10px;
+    /* width: 100%; */
+}
+.starScoreText {
+    /* margin :auto; */
+    display: inline-block;
+    width: 62px;
+    
+}
+/* .starScoreName {
+    margin :auto;
+    display: block;
+} */
+
+.grade {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+.grade {
+      color : #F6c30a;
+      /* width: 70%; */
+}
+
+
+.difficulty {
+    position : relative;
+    width : 343px;
+    height: 56px;
+    top : 260px;
+    border-color: #F6c30a;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    margin : auto;
+    
+}
+
+.difficultySelect {
+    color : #F6c30a;
+}
+
+.difficultyList {
+    vertical-align: middle;
+    margin :auto;
+    margin-top: 11px;
+}
+
+td {
+    vertical-align: middle;
+    justify-content: middle;
+}
+
+li {
+    vertical-align: middle;
+}
+</style>
+
+
+<body>
+    <form class="input-form" action="/towalking/twtrail/<%= user_id %>/<%= id %>/writereview" method="post">
+        <div class="main">
+            <div class="navigationBar">
+                <div class="Toowalking">투월킹</div>
+                <div class="menu">
+                    <ul>
+                        <li class="menuItem">산책로 등록</li>
+                        <li class="menuItem">산책로 순위</li>
+                    </ul>
+                </div>
+                <div class="icon">
+                    <ul>
+                        <li>
+                            <!-- '지구' 아이콘 이미지 첨부 -->
+                        </li>
+                        <li>
+                            <!-- '알람' 아이콘 이미지 첨부 -->
+                        </li>
+                        <li>
+                            <!-- '사람' 아이콘 이미지 첨부 -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="header">
+                    <table class="headerTable">
+                        <td class="headerIcon close">
+                            <span class="material-symbols-outlined closeBtn">
+                                close</span>
+                        </td>
+                        <td class="headerIcon review">
+                            후기 등록
+                        </td>
+                        <td class="headerIcon complete">
+                            <input type="submit" name="submit" value="등록">
+                        </td>
+                    </table>
+                </div>
+                <div class="itemName">
+                    <%= roadName.tw_name %>
+                        <div class="itemNameText"></div>
+                </div>
+
+
+                <input type="text" name="reviewTitle" placeholder="제목을 입력하세요." class="inputBox inputTitle">
+                <input type="text" name="reviewContents" placeholder="내용을 입력하세요." class="inputBox inputContent">
+                <div class="uploadImg">
+                    <button class="uploadImgBtn">사진 등록</button>
+                </div>
+
+
+                <div class="starScore">
+                    <table class="starScoreTable">
+                        <td class="starScoreText">
+                            별점
+                        </td>
+                        <td class="material-symbols-outlined grade">
+                            gradegradegradegradegrade
+                        </td>
+
+                    </table>
+                    <!-- <ul class = "starScoreList">
+                    <li class = "starScoreName">별점</li>
+                    <li>
+                        <span class="material-symbols-outlined">
+                            gradegradegradegradegrade
+                        </span>
+                    </li>
+                </ul> -->
+                </div>
+                <div class="difficulty">
+                    <table class="difficultyList">
+                        <td>난이도</td>
+                        <td>
+                            <div class="difficult">
+                                <ul>
+                                    <li class="difficultyBtn">
+                                        <span class="material-symbols-outlined difficultySelect">
+                                            radio_button_checked
+                                        </span>
+                                    </li>
+                                    <li>
+                                        상
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="average">
+                                <ul>
+                                    <li class="difficultyBtn">
+                                        <span class="material-symbols-outlined difficultySelect">
+                                            radio_button_unchecked
+                                        </span>
+                                    </li>
+                                    <li>
+                                        중
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="easy">
+                                <ul>
+                                    <li class="difficultyBtn">
+                                        <span class="material-symbols-outlined difficultySelect">
+                                            radio_button_unchecked
+                                        </span>
+                                    </li>
+                                    <li>
+                                        하
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
