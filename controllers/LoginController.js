@@ -65,11 +65,11 @@ exports.loginPost = async (req, res) => {
                 return res.redirect("/towalking/" + user_id + "/list");
             } else {
                 console.log("비밀번호가 일치하지 않음");
-                return res.render("../views/login_noPwPage");
+                res.send("<script>alert('wrong password!');history.go(-1);</script>");
             }
         } else {
             console.log("해당 아이디가 존재하지 않음");
-            return res.render("../views/login_noIdPage");
+            res.send("<script>alert(' ID does not exist!');history.go(-1);</script>");
         }
     } catch (err) {
         res.status(500).send({
