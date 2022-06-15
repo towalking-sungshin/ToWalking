@@ -42,10 +42,10 @@
     }
     else if(num==3){
       if(check==0){
-        location.replace("/towalking/list");
+        location.replace("/towalking/<%= user_id %>/list");
       }
       else if(check==1){
-        location.replace("/towalking/list/userList/#");
+        location.replace("/towalking/<%= user_id %>/list/userList");
       }
       return;
     }
@@ -55,7 +55,7 @@
       //console.log(strGeo);
       //document.getElementById("showList").style.display='none';
       if(check==0){
-        location.replace("/towalking/list/"+strGeo);
+        location.replace("/towalking/<%= user_id %>/list/"+strGeo);
         //btnName.innerText=strGeo;
       }
       else if(check==1){
@@ -63,7 +63,7 @@
         //console.log(check);
         //console.log(strGeo);
         
-        location.replace("/towalking/list/userList/"+strGeo);
+        location.replace("/towalking/<%= user_id %>/list/userList" + strGeo);
 
         //window.location.href="/towalking/list/userList#/"+strGeo;
         //btnName.innerText=strGeo;
@@ -80,7 +80,7 @@
       check = 0;
       document.getElementById("changingPage").style.display='block';
       document.getElementById("userPage").style.display='none';
-      location.replace("/towalking/list/");
+      location.replace("/towalking/<%= user_id %>/list");
 
     }
     else if(num==1){
@@ -88,7 +88,7 @@
       document.getElementById("changingPage").style.display='none';
       document.getElementById("userPage").style.display='block';
       //location.href ='/towalking/list/userList#';
-      location.replace("/towalking/list/userList/#");
+      location.replace("/towalking/<%= user_id %>/list/userList");
     }
   }
 
@@ -248,9 +248,10 @@
                     </div>
                 </a>
                     <div>
-                        <form action="/towalking/<%= user_id %>/<%= trail.tw_num %>/trail/like" method="post">
+                        <form action="/towalking/<%= user_id %>/<%= trail.tw_num %>/twtrail/like" method="post">
                             <input type="submit" value="공감">
                         </form>
+
                     </div>
                     <div style="float: left; width: 20%; padding:10px;">
                         <%= trail.like %>
@@ -267,20 +268,24 @@
 
             <% trails.forEach(trail=> { %>
                 <div style="float: left; width: 10%; padding:10px;">
-
-
-                    <%= trail.user_tw_num %>
+                    <a href="/towalking/<%= user_id %>/<%= trail.user_tw_num %>/user_detail">
+                        <%= trail.user_tw_num %>
+                    </a>
                 </div>
                 <div style="float: left; width: 70%; padding:10px; text-align: left;">
-                    <%= trail.user_tw_name %>
-                        <%= trail.user_id %>
+                    <a href="/towalking/<%= user_id %>/<%= trail.user_tw_num %>/user_detail">
+                        <%= trail.user_tw_name %>
+                    </a>
+                    <br>
                 </div>
                 <div style="float: left; width: 20%; padding:10px;">
                     <%= trail.like %>
                 </div>
+                <form action="/towalking/<%= user_id %>/<%= trail.user_tw_num %>/usertrail/like" method="post">
+                    <input type="submit" value="공감">
+                </form>
 
                 <br>
-                <img src=<%=trail.user_tw_pic %> width="300",height="250" />
                 <hr>
 
                 <% }) %>

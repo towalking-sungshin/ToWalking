@@ -82,7 +82,7 @@
 
     <nav class="navbar navbar-expand-lg bg-default navbarExtra navbar-white navbar-inner">
         <div class="container-fluid center-block" style='width:500px;'>
-            <a class="navbar-brand putaspace" href="/towalking/<%= user_id %>/list">
+            <a class="navbar-brand putaspace" href="/towalking/<%= user.user_id %>/list">
                 <p class="titleFont">투월킹</p>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -93,7 +93,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/TrailTeg/<%= user_id %>">
+                        <a class="nav-link active" aria-current="page" href="/TrailTeg/<%= user.user_id %>">
                             <p class="navbarDefaultFont">산책로 등록</p>
                         </a>
                     </li>
@@ -120,7 +120,7 @@
                 <%= trailDetail.user_tw_name %>
             </div>
             <div class="top_review inline">
-                <a href="/towalking/usertrail/<%= user_id %>/1/writereview">
+                <a href="/towalking/usertrail/<%= user.user_id %>/<%= user.id %>/writereview">
                     후기 작성
                 </a>
             </div>

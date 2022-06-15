@@ -5,12 +5,8 @@ tw_Trail = db.tw_Trail;
 // 사용자 등록 산책로 후기 등록 페이지 렌더링
 exports.sendFormOfuserid = async (req, res) => {
     try {
-        let road = await user_Trail.findOne({
-            where : {
-                user_tw_num : req.params.id}
-            }); 
-            
-        return res.render("../views/user_write_review", {user_id : req.params.user_id, id : req.params.id, roadName : road});
+        var user_road = await user_Trail.findByPk(req.params.id);
+        return res.render("../views/user_write_review", {user : req.params, roadName : user_road});
     }
     catch (err) {
         res.status(500).send({
@@ -26,8 +22,7 @@ exports.sendFormOftwid = async (req, res) => {
             where : {
                 tw_num : req.params.id}
             }); 
-            
-        return res.render("../views/tw_write_review", {user_id : req.params.user_id, id : req.params.id, roadName : road});
+        return res.render("../views/tw_write_review", {tw : req.params, roadName : road});
     }
     catch (err) {
         res.status(500).send({

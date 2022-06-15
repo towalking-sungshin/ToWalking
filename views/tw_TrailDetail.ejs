@@ -80,7 +80,7 @@
 
     <nav class="navbar navbar-expand-lg bg-default navbarExtra navbar-white navbar-inner">
         <div class="container-fluid center-block" style='width:500px;'>
-            <a class="navbar-brand putaspace" href="/towalking/<%= user_id %>/list">
+            <a class="navbar-brand putaspace" href="/towalking/<%= tw.user_id %>/list">
                 <p class="titleFont">투월킹</p>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -91,7 +91,7 @@
                 <ul class="navbar-nav">
     
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/TrailTeg/<%= user_id %>">
+                        <a class="nav-link active" aria-current="page" href="/TrailTeg/<%= tw.user_id %>">
                             <p class="navbarDefaultFont">산책로 등록</p>
                         </a>
                     </li>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="top_review inline">
-                <a href="/towalking/twtrail/<%= user_id %>/1/writereview">
+                <a href="/towalking/twtrail/<%= tw.user_id %>/1/writereview">
                     후기 작성
                 </a>
             </div>
@@ -151,7 +151,7 @@
                 <tr>
                     <td class="placeholder_img_td"><img src="image/review.png" class="placeholder"></td>
                     <td>후기</td>
-                    <td class ="more_review_text" ><a class="navbar-brand putaspace" href="/twReview/<%= id%>">자세히
+                    <td class ="more_review_text" ><a class="navbar-brand putaspace" href="/twReview/<%= tw.id%>">자세히
                         </a>
                         
                     </td>

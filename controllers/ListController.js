@@ -1,7 +1,7 @@
 const db= require(__dirname + "/../models/index")
 const tw_Trail = db.tw_Trail;
 const user_Trail = db.user_Trail;
-
+const user = db.user;
 
 exports.trailList = async (req,res)=>{
     try{
@@ -20,12 +20,13 @@ exports.trailList = async (req,res)=>{
 
 exports.userList = async (req,res)=>{
     try{
+        user_name = await user.findByPk(req.params.user_id);
         data = await user_Trail.findAll({
             attributes:['user_tw_num', 'user_tw_name','user_id','user_tw_geo','like']
 
         });
         console.log(data);
-        res.render("../views/main",{user_id: req.params.user_id, trails:data});
+        res.render("../views/main",{user_name: user_name.user_name, user_id: req.params.user_id, trails:data});
     }catch(err){
         res.status(500).send({
             message:err.message

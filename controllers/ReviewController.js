@@ -1,5 +1,6 @@
 const db = require(__dirname + "/../models/index")
-const review = db.review;
+const tw_review = db.tw_review;
+const user_review = db.user_review;
 const tw_Trail = db.tw_Trail;
 const user_Trail = db.user_Trail;
 
@@ -8,7 +9,7 @@ exports.getUserReviewList = async (req, res) => {
     
     try {
         user_tw_name = await user_Trail.findByPk(req.params.id);
-        user_review_content = await review.findAll({
+        user_review_content = await user_review.findAll({
             attributes:['user_tw_num', 'title', 'review_date', 'like', 'star', 'content'],
             where: {
                 user_tw_num: req.params.id
@@ -28,7 +29,7 @@ exports.getTwReviewList = async (req, res) => {
         tw_name = await tw_Trail.findByPk(req.params.id);
         console.log(req.params.id);
         console.log(tw_name);
-        review_content = await review.findAll({
+        review_content = await tw_review.findAll({
             attributes:['review_num', 'tw_num', 'title', 'review_date', 'like', 'star', 'content'],
             where: {
                 tw_num: req.params.id

@@ -27,8 +27,9 @@ exports.tw_updateLike = async (req,res)=>{
         }
 
          else {
+            var num = Math.floor(Math.random()*100) +1;
             await tw_like.create({ // 산책로 공감 테이블에 데이터 삽입
-                id: 5,
+                id: num,
                 tw_num: tw_num,
                 user_id: user_id
             });
@@ -52,7 +53,7 @@ exports.tw_updateLike = async (req,res)=>{
     }
 };
 
-// 투월킹 제공 산책로 공감 시
+// 사용자 등록 산책로 공감 시
 exports.user_updateLike = async (req,res)=>{
     try{
         console.log("버튼 클릭");
@@ -68,8 +69,7 @@ exports.user_updateLike = async (req,res)=>{
         });
 
         if (already) {
-            console.log('이미 공감을 눌렀습니다.')
-            return res.redirect("/towalking/" + user_id + "/list");
+            res.send("<script>alert('you already agree');history.go(-1);</script>");
         }
 
          else {

@@ -9,11 +9,12 @@ exports.user_saveReview = async(req,res) => {
         console.log(num);
         await user_review.create({
             review_num: num,
-            user_num: req.params.id,
+            tw_num: req.params.id,
             user_id: req.params.user_id,
             title : req.body.reviewTitle,
-            content : req.body.reviewContents
-            // 별점, 난이도 추가
+            content : req.body.reviewContents,
+            starscore : req.body.rating,
+            difficulty : req.body.difficulty
         });
         console.log("성공");
         return res.redirect("/towalking/" + req.params.user_id + "/" +  req.params.id + "/user_detail");
@@ -34,8 +35,9 @@ exports.tw_saveReview = async(req,res) => {
             tw_num: req.params.id,
             user_id: req.params.user_id,
             title : req.body.reviewTitle,
-            content : req.body.reviewContents
-            // 별점, 난이도 추가
+            content : req.body.reviewContents,
+            starscore : req.body.rating,
+            difficulty : req.body.difficulty
         });
         console.log("성공");
         return res.redirect("/towalking/" + req.params.user_id + "/" +  req.params.id + "/tw_detail");

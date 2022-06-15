@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize, Sequelize) => {
-  const review = sequelize.define("review", {
+  const user_review = sequelize.define("user_review", {
       review_num: { // 후기 번호
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -43,11 +43,11 @@ module.exports = (sequelize, Sequelize) => {
   {
       timestamps: false,
       underscored: false,
-      modelName: 'review',
-      tableName: 'review_table',
+      modelName: 'user_review',
+      tableName: 'user_review_table',
       paranoid: true,
       charset: 'utf8',
       collate: 'utf8_general_ci',
     });
-    return review;
+    return user_review;
   }

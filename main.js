@@ -9,8 +9,7 @@ const port = 3000,
     LikeController = require("./controllers/LikeController"),
     writereviewController = require("./controllers/writeReviewController"),
     saveReviewController = require("./controllers/saveReviewController")
-    ReviewController = require("./controllers/ReviewController"),
-    LikeController = require("./controllers/LikeController");
+    ReviewController = require("./controllers/ReviewController");
 
     layout = require("express-ejs-layouts");
     db = require("./models/index");
@@ -50,10 +49,6 @@ const flash = require("connect-flash");
     /**[사용자] 산책로 리뷰 상세 페이지 */
     app.get("/userReview/:id",ReviewController.getUserReviewList);
     app.get("/twReview/:id",ReviewController.getTwReviewList);
-
-
-    app.post("/towalking/:user_id/:id/trail/like", LikeController.updateLike);
-
 
     app.use("/towalking/:user_id/list", express.static('public'));
     app.get("/towalking/:user_id/list", ListController.trailList); // 투월킹 제공 산책로 리스트
