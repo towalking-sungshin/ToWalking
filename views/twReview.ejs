@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .basic {
+            position: relative;     
+            text-align: center;
+            margin-top:100px;
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: white;
+            height: auto;
+            width: 375px;
+            margin: 0 auto;
+        }
+        .top {
+            margin-top: 30px;
+        }
+        .reviewImg {
+            margin-top: 30px;
+            margin-bottom: 2px;
+        }
+        .title01 {
+            font-size:20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .title02 {
+            font-size:20px;
+            font-weight: bold;
+        }
+        .title03 {
+            font-size:15px;
+            font-weight: bold;
+        }
+        .heart{
+            font-size:15px;
+            color:#363636;
+            text-align: right;
+        }
+        .date {
+            font-size:15px;
+            font-weight: normal;
+            text-align:left;
+        }
+        .star {
+            font-size:15px;
+            font-weight: normal;
+            text-align:right;
+        }
+        .reviewbox {
+            font-size:15px;
+            font-weight: normal;
+        }
+        .contentbox {
+            border: 3px solid #F6C30A;
+            border-radius:8px;
+            width: 375px;
+            text-align: center;
+        }
+        .content {
+            font-size:15px;
+            font-weight: normal;
+            text-align:left;
+        }
+    </style>
+</head>
+<body>
+    <div class="basic">
+        <div class="top">
+            <div class="title01">
+                <p><b>산책로 후기</b></p>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+
+            <div class="title02">
+                <p style="background-color: #F6C30A;">
+                    <b><%= tw_name.tw_name %></b>
+                </p> 
+            </div>
+
+        <% reviews.forEach(review=> { %>
+        <div class="reviewbox">
+            <div class ="review_num" style="float: left;">
+                <%= review.review_num %>
+            </div>
+            <div class="title03" style="float:left">
+                <%= review.title %>
+            </div>
+            <div class="heart" style="float:right">
+                <%= review.like %>                      <!--<p>❤30</p>-->
+            </div>
+            <div style="clear:both"></div>
+            <div class="date" style="float:left; width:50%">
+                <%= review.review_date %>               <!--<p>2022.01.01</p>-->
+            </div>
+            <div class="star" style="float:left; width:50%">
+                <%= review.star %>                      <!--<p>★★★★☆</p>-->
+            </div>
+            <div style="clear:both"></div>
+            <div class="contentbox">
+                <div class="content">
+                    <%= review.content %>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+        <hr style="border: solid 1px #E8E8E8;">
+    </div>
+    
+</body>
+</html>
