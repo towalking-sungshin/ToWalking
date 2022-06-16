@@ -202,6 +202,45 @@
     }
 
 
+    /* star1 */
+    .star-rating {
+        border: solid 1px #ccc;
+        display: flex;
+        left: 140px;
+        bottom: 30px;
+        flex-direction: row-reverse;
+        font-size: 1.5em;
+        justify-content: space-around;
+        padding: 0 .2em;
+        text-align: center;
+        width: 5em;
+        position: relative;
+    }
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        color: #ccc;
+        cursor: pointer;
+    }
+
+    .star-rating :checked~label {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: #f90;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover~label {
+        color: #fc0;
+    }
+
+    /* star 구현 */
+
+
+
+
     .starScore {
         position: relative;
         width: 343px;
@@ -218,7 +257,7 @@
 
     .starScoreTable {
         /* display: inline; */
-        margin: auto;
+        margin-left: 100px;
         margin-top: 10px;
         /* width: 100%; */
     }
@@ -231,9 +270,9 @@
     }
 
     /* .starScoreName {
-    margin :auto;
-    display: block;
-} */
+        margin :auto;
+        display: block;
+    } */
 
     .grade {
         font-variation-settings:
@@ -280,41 +319,7 @@
     li {
         vertical-align: middle;
     }
-
-    .star-rating {
-        border:solid 1px #ccc;
-        display:flex;
-        left : 140px;
-        bottom : 30px;
-        flex-direction: row-reverse;
-        font-size:1.5em;
-        justify-content:space-around;
-        padding:0 .2em;
-        text-align:center;
-        width:5em;
-        position : relative;
-      }
-      
-      .star-rating input {
-        display:none;
-      }
-      
-      .star-rating label {
-        color:#ccc;
-        cursor:pointer;
-      }
-      
-      .star-rating :checked ~ label {
-        -webkit-text-fill-color: transparent;
-        -webkit-text-fill-color:#f90;
-      }
-      
-      .star-rating label:hover,
-      .star-rating label:hover ~ label {
-        color:#fc0;
-      }
 </style>
-
 
 <body>
     <form class="input-form" action="/towalking/usertrail/<%= user.user_id %>/<%= user.id %>/writereview" method="post">
@@ -358,13 +363,17 @@
                     </table>
                 </div>
                 <div class="itemName">
-                    <%= roadName.user_tw_name %>
+                    <%= roadName.tw_name %>
                         <div class="itemNameText"></div>
                 </div>
 
 
                 <input type="text" name="reviewTitle" placeholder="제목을 입력하세요." class="inputBox inputTitle">
                 <input type="text" name="reviewContents" placeholder="내용을 입력하세요." class="inputBox inputContent">
+                <div class="uploadImg">
+                    <button class="uploadImgBtn">사진 등록</button>
+                </div>
+
 
                 <div class="starScore">
                     <table class="starScoreTable">
@@ -372,9 +381,9 @@
                             별점
                         </td>
                     </table>
-                
+
                     <div class="star-rating">
-                
+
                         <input type="checkbox" id="5-stars" name="rating" value="5" />
                         <label for="5-stars" class="star">&#9733;</label>
                         <input type="checkbox" id="4-stars" name="rating" value="4" />
@@ -386,7 +395,7 @@
                         <input type="checkbox" id="1-star" name="rating" value="1" />
                         <label for="1-star" class="star">&#9733;</label>
                     </div>
-                
+
                 </div>
                 <div class="difficulty">
                     <table class="difficultyList">
@@ -414,52 +423,6 @@
                                 <ul>
                                     <li class="difficultyBtn">
                                         <label><input type="checkbox" name="difficulty" value="하"> 하</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                <div class="difficulty">
-                    <table class="difficultyList">
-                        <td>난이도</td>
-                        <td>
-                            <div class="difficult">
-                                <ul>
-                                    <li class="difficultyBtn">
-                                        <span class="material-symbols-outlined difficultySelect">
-                                            radio_button_checked
-                                        </span>
-                                    </li>
-                                    <li>
-                                        상
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="average">
-                                <ul>
-                                    <li class="difficultyBtn">
-                                        <span class="material-symbols-outlined difficultySelect">
-                                            radio_button_unchecked
-                                        </span>
-                                    </li>
-                                    <li>
-                                        중
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="easy">
-                                <ul>
-                                    <li class="difficultyBtn">
-                                        <span class="material-symbols-outlined difficultySelect">
-                                            radio_button_unchecked
-                                        </span>
-                                    </li>
-                                    <li>
-                                        하
                                     </li>
                                 </ul>
                             </div>

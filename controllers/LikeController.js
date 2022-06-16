@@ -59,11 +59,12 @@ exports.user_updateLike = async (req,res)=>{
         console.log("버튼 클릭");
         user_id = req.params.user_id;
         tw_num = req.params.id;
+        var num = Math.floor(Math.random()*100) +1;
         
-        // tw_like 테이블에서 데이터가 이미 존재하는지 확인
+        // user_like 테이블에서 데이터가 이미 존재하는지 확인
         already = await user_like.findOne({
             where: {
-                tw_num: tw_num,
+                tw_num: tw_num, //==================================================
                 user_id: user_id
             }
         });
@@ -73,8 +74,9 @@ exports.user_updateLike = async (req,res)=>{
         }
 
          else {
+            var num = Math.floor(Math.random()*100) +1;
             await user_like.create({ // 산책로 공감 테이블에 데이터 삽입
-                id: 5,
+                id: num,
                 tw_num: tw_num,
                 user_id: user_id
             });
@@ -86,7 +88,7 @@ exports.user_updateLike = async (req,res)=>{
 
             user_Trail.update( // 공감수 업데이트
             { like: update_like },
-            { where : { tw_num : tw_num } }).then(()=>{
+            { where : { user_tw_num : tw_num } }).then(()=>{
                 return res.redirect("/towalking/" + user_id + "/list");
             });
         }

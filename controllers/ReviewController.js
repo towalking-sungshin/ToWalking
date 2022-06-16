@@ -10,13 +10,12 @@ exports.getUserReviewList = async (req, res) => {
     try {
         user_tw_name = await user_Trail.findByPk(req.params.id);
         user_review_content = await user_review.findAll({
-            attributes:['user_tw_num', 'title', 'review_date', 'like', 'star', 'content'],
+            attributes:['user_num', 'title', 'star', 'content', 'level'],
             where: {
-                user_tw_num: req.params.id
+                user_num: req.params.id
             }
         });
-        console.log(review_content);
-        res.render("../views/userReview",{id: req.params.user_tw_num, review_num: req.params.review_num, reviews:user_review_content});
+        res.render("../views/userReview",{id: req.params.user_num, review_num: req.params.review_num, reviews:user_review_content});
     } catch (err) {
         res.status(500).send({
             message: err.message
@@ -30,7 +29,7 @@ exports.getTwReviewList = async (req, res) => {
         console.log(req.params.id);
         console.log(tw_name);
         review_content = await tw_review.findAll({
-            attributes:['review_num', 'tw_num', 'title', 'review_date', 'like', 'star', 'content'],
+            attributes:['review_num', 'tw_num', 'title', 'star', 'content', 'level'],
             where: {
                 tw_num: req.params.id
             }

@@ -120,7 +120,7 @@
             </div>
 
             <div class="top_review inline">
-                <a href="/towalking/twtrail/<%= tw.user_id %>/1/writereview">
+                <a href="/towalking/twtrail/<%= tw.user_id %>/<%= tw.id %>/writereview">
                     후기 작성
                 </a>
             </div>
@@ -151,7 +151,7 @@
                 <tr>
                     <td class="placeholder_img_td"><img src="image/review.png" class="placeholder"></td>
                     <td>후기</td>
-                    <td class ="more_review_text" ><a class="navbar-brand putaspace" href="/twReview/<%= tw.id%>">자세히
+                    <td class ="more_review_text" ><a class="navbar-brand putaspace" href="/twReview/<%= tw.id %>">자세히
                         </a>
                         
                     </td>
@@ -166,10 +166,6 @@
                     <% reviews.forEach(review=> { %>
                         <div class="review_content">
                             <%= review.title %>
-                                <div class="review_like">
-                                    <%= review.like %>
-                                </div>
-                                <img src="image/heart.png" class="heart_img">
                         </div>
                         <% }); %>
                 </li>

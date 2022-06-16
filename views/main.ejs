@@ -33,7 +33,6 @@
       document.getElementById("userPage").style.display='block';
     }
   });
-  //console.log(check);
 
   function getGeo(num){
     const btnName = document.getElementById("dropdownBtn");
@@ -52,26 +51,12 @@
     else{
       var strGeo = document.getElementsByClassName("dropdown-item")[num+1].text;
       btnName.innerText=strGeo;
-      //console.log(strGeo);
-      //document.getElementById("showList").style.display='none';
       if(check==0){
         location.replace("/towalking/<%= user_id %>/list/"+strGeo);
-        //btnName.innerText=strGeo;
       }
       else if(check==1){
-        //location.href='/towalking/list/userList#/'+strGeo;
-        //console.log(check);
-        //console.log(strGeo);
-        
-        location.replace("/towalking/<%= user_id %>/list/userList" + strGeo);
-
-        //window.location.href="/towalking/list/userList#/"+strGeo;
-        //btnName.innerText=strGeo;
+        location.replace("/towalking/<%= user_id %>/list/userList/" + strGeo);
       }
-
-      //const btnName = document.getElementById("dropdownBtn");
-      //btnName.innerText=strGeo;
-      //버튼 누른 내용 그대로 두는 코드 >> 하지만 지금 실행이 안된다!!! 0.0
     }
   }
 
@@ -87,7 +72,6 @@
       check=1;
       document.getElementById("changingPage").style.display='none';
       document.getElementById("userPage").style.display='block';
-      //location.href ='/towalking/list/userList#';
       location.replace("/towalking/<%= user_id %>/list/userList");
     }
   }

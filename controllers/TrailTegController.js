@@ -12,7 +12,7 @@ exports.saveTrailTeg = async(req, res) => {
         var user_tw_num = Math.floor(Math.random()*100) +1;
         console.log(user_tw_num);
         await user_Trail.create({
-            user_tw_num,
+            user_tw_num: 5,
             user_id: req.params.user_id,
             user_tw_name: req.body.user_tw_name,
             user_tw_geo: req.body.user_tw_geo,

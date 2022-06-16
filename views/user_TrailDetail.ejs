@@ -128,11 +128,11 @@
         </nav>
     
         <br>
-
+        <br>
         <div class="writer center width_90">
 
             <div class="writer_div inline">글쓴이: </div>
-            <div class="writer_div inline"><%= trailDetail.user_tw_name %></div>
+            <div class="writer_div inline"><%= findUser.user_name %></div>
 
 
         </div>
@@ -179,7 +179,10 @@
                     <tr>
                         <td class="placeholder_img_td"><img src="image/review.png" class="placeholder"></td>
                         <td>후기</td>
-                        <td class="more_review_text">자세히</td>
+                        <td class="more_review_text"><a class="navbar-brand putaspace" href="/userReview/<%= user.id %>">자세히
+                            </a>
+                        
+                        </td>
                         <td class="more_review_img"><img src="image/more_review.png" class="placeholder"></td>
                     </tr>
                 </table>
@@ -188,13 +191,9 @@
                     <ol class="review_group">
                         <li class="review_item">
                             <% reviews.forEach(review => { %>
-                                <div class="review_content">
-                                    <%= review.title %>
-                                    <div class="review_like">
-                                        <%= review.like %>
-                                    </div>
-                                    <img src="image/heart.png" class="heart_img">
-                                </div>
+                        <div class="review_content">
+                            <%= review.title %>
+                        </div>
                                 <% }); %>
                         </li>
                     </ol>
