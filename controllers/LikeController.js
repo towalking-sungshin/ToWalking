@@ -76,7 +76,7 @@ exports.user_updateLike = async (req,res)=>{
         // user_like 테이블에서 데이터가 이미 존재하는지 확인
         already = await user_like.findOne({
             where: {
-                tw_num: tw_num, //==================================================
+                tw_num: tw_num,
                 user_id: user_id
             }
         });
