@@ -23,7 +23,19 @@ exports.tw_updateLike = async (req,res)=>{
 
         // 이미 공감을 눌렀다면 경고창으로 띄우고 이전 페이지로 리다이렉션
         if (already) {
-            res.send("<script>alert('you already agree');history.go(-1);</script>");
+            await tw_like.destroy({where: {tw_num : tw_num}}); // 특정 데이터만 삭제
+           
+            data = await tw_Trail.findByPk(tw_num); // 산책로 데이터 찾기
+
+            update_like = data['like'] - 1; // 공감수 + 1
+            console.log("업데이트 된 공감수: " + update_like);
+
+            tw_Trail.update( // 공감수 업데이트
+            { like: update_like },
+            { where : { tw_num : tw_num } }).then(()=>{
+            });
+            
+            return res.redirect("/towalking/" + user_id + "/list");
         }
         else {
             var tw_like_findAll = await tw_like.findAll();
@@ -60,8 +72,6 @@ exports.user_updateLike = async (req,res)=>{
         console.log("버튼 클릭");
         user_id = req.params.user_id;
         tw_num = req.params.id;
-        var tw_like_findAll = await tw_like.findAll();
-        var count = tw_like_findAll.length;
         
         // user_like 테이블에서 데이터가 이미 존재하는지 확인
         already = await user_like.findOne({
@@ -72,7 +82,19 @@ exports.user_updateLike = async (req,res)=>{
         });
 
         if (already) {
-            res.send("<script>alert('you already agree');history.go(-1);</script>");
+            await tw_like.destroy({where: {tw_num : tw_num}}); // 특정 데이터만 삭제
+           
+            data = await tw_Trail.findByPk(tw_num); // 산책로 데이터 찾기
+
+            update_like = data['like'] - 1; // 공감수 + 1
+            console.log("업데이트 된 공감수: " + update_like);
+
+            tw_Trail.update( // 공감수 업데이트
+            { like: update_like },
+            { where : { tw_num : tw_num } }).then(()=>{
+            });
+            
+            return res.redirect("/towalking/" + user_id + "/list");
         }
 
          else {
