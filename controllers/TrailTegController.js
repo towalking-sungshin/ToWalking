@@ -11,11 +11,6 @@ exports.saveTrailTeg = async(req, res) => {
         user_id = req.params.user_id;
         var tw_like_findAll = await user_Trail.findAll();
         var count = tw_like_findAll.length;
-        console.log("yujin" + count);
-        console.log("yujin" + count);
-        console.log("yujin" + count);
-        console.log("yujin" + count);
-        console.log("yujin" + count);
 
         await user_Trail.create({
             user_tw_num: count,
