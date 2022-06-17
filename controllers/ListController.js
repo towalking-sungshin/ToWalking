@@ -9,13 +9,6 @@ exports.trailList = async (req,res)=>{
             attributes:['tw_num', 'tw_name', 'tw_pic', 'like','tw_geo']
 
         });
-
-        data.sort(function(a, b) {
-            return b.like - a.like;
-        });
-
-        console.log(data);
-
         res.render("../views/main",{user_id: req.params.user_id, trails:data});
     }catch(err){
         res.status(500).send({
@@ -31,11 +24,6 @@ exports.userList = async (req,res)=>{
             attributes:['user_tw_num', 'user_tw_name','user_id','user_tw_geo','like']
 
         });
-
-        data.sort(function(a, b) {
-        return b.like - a.like;
-        });
-
         console.log(data);
         res.render("../views/main",{user_name: user_name.user_name, user_id: req.params.user_id, trails:data});
     }catch(err){
