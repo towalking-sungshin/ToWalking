@@ -38,8 +38,14 @@ exports.tw_updateLike = async (req,res)=>{
             return res.redirect("/towalking/" + user_id + "/list");
         }
         else {
-            var tw_like_findAll = await tw_like.findAll();
-            var count = tw_like_findAll.length;
+
+            data = await tw_like.findAll();
+
+            data.sort(function(a, b) {
+            return b.id - a.id;
+            });
+            
+            var count = (Math.random()* 100 +1);
 
             await tw_like.create({ // 산책로 공감 테이블에 데이터 삽입
                 id: count,
@@ -82,24 +88,24 @@ exports.user_updateLike = async (req,res)=>{
         });
 
         if (already) {
-            await tw_like.destroy({where: {tw_num : tw_num}}); // 특정 데이터만 삭제
+            await user_like.destroy({where: {tw_num : tw_num}}); // 특정 데이터만 삭제
            
-            data = await tw_Trail.findByPk(tw_num); // 산책로 데이터 찾기
+            data = await user_Trail.findByPk(tw_num); // 산책로 데이터 찾기
 
             update_like = data['like'] - 1; // 공감수 + 1
             console.log("업데이트 된 공감수: " + update_like);
 
-            tw_Trail.update( // 공감수 업데이트
+            user_Trail.update( // 공감수 업데이트
             { like: update_like },
-            { where : { tw_num : tw_num } }).then(()=>{
+            { where : { user_tw_num : tw_num } }).then(()=>{
             });
             
-            return res.redirect("/towalking/" + user_id + "/list");
+            return res.redirect("/towalking/" + user_id + "/list/userList");
         }
 
          else {
-            var tw_like_findAll = await tw_like.findAll();
-            var count = tw_like_findAll.length;
+            var count = (Math.random()* 100 +1);
+
             await user_like.create({ // 산책로 공감 테이블에 데이터 삽입
                 id: count,
                 tw_num: tw_num,
@@ -114,7 +120,7 @@ exports.user_updateLike = async (req,res)=>{
             user_Trail.update( // 공감수 업데이트
             { like: update_like },
             { where : { user_tw_num : tw_num } }).then(()=>{
-                return res.redirect("/towalking/" + user_id + "/list");
+                return res.redirect("/towalking/" + user_id + "/list/userList");
             });
         }
 
