@@ -5,11 +5,12 @@ const db = require("../models/index"),
 // 사용자 등록 산책로 후기 저장 
 exports.user_saveReview = async(req,res) => {
     try {
-        var num = Math.floor(Math.random()*100) +1;
-        console.log(num);
+        var tw_like_findAll = await user_review.findAll();
+        var count = tw_like_findAll.length;
+    
         console.log(req.body.rating + " " +  req.body.difficulty);
         await user_review.create({
-            review_num: num,
+            review_num: count,
             user_num: req.params.id,
             user_id: req.params.user_id,
             title : req.body.reviewTitle,
@@ -29,10 +30,10 @@ exports.user_saveReview = async(req,res) => {
 // 투월킹 제공 산책로 후기 저장
 exports.tw_saveReview = async(req,res) => {
     try {
-        var num = Math.floor(Math.random()*100) +1;
-        console.log(num);
+        var tw_like_findAll = await tw_review.findAll();
+        var count = tw_like_findAll.length;
         await tw_review.create({
-            review_num: num,
+            review_num: count,
             tw_num: req.params.id,
             user_id: req.params.user_id,
             title : req.body.reviewTitle,

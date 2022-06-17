@@ -325,7 +325,9 @@
     <form class="input-form" action="/towalking/usertrail/<%= user.user_id %>/<%= user.id %>/writereview" method="post">
         <div class="main">
             <div class="navigationBar">
-                <div class="Toowalking">투월킹</div>
+                <a class="navbar-brand putaspace" href="/towalking/<%= user.user_id %>/list">
+                    <p class="titleFont">투월킹</p>
+                </a>
                 <div class="menu">
                     <ul>
                         <li class="menuItem">산책로 등록</li>

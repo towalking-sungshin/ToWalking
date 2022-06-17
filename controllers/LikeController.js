@@ -25,11 +25,12 @@ exports.tw_updateLike = async (req,res)=>{
         if (already) {
             res.send("<script>alert('you already agree');history.go(-1);</script>");
         }
+        else {
+            var tw_like_findAll = await tw_like.findAll();
+            var count = tw_like_findAll.length;
 
-         else {
-            var num = Math.floor(Math.random()*100) +1;
             await tw_like.create({ // 산책로 공감 테이블에 데이터 삽입
-                id: num,
+                id: count,
                 tw_num: tw_num,
                 user_id: user_id
             });
@@ -59,7 +60,8 @@ exports.user_updateLike = async (req,res)=>{
         console.log("버튼 클릭");
         user_id = req.params.user_id;
         tw_num = req.params.id;
-        var num = Math.floor(Math.random()*100) +1;
+        var tw_like_findAll = await tw_like.findAll();
+        var count = tw_like_findAll.length;
         
         // user_like 테이블에서 데이터가 이미 존재하는지 확인
         already = await user_like.findOne({
@@ -74,9 +76,10 @@ exports.user_updateLike = async (req,res)=>{
         }
 
          else {
-            var num = Math.floor(Math.random()*100) +1;
+            var tw_like_findAll = await tw_like.findAll();
+            var count = tw_like_findAll.length;
             await user_like.create({ // 산책로 공감 테이블에 데이터 삽입
-                id: num,
+                id: count,
                 tw_num: tw_num,
                 user_id: user_id
             });

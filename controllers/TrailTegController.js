@@ -9,10 +9,16 @@ exports.getTrailTeg = (req, res) => {
 exports.saveTrailTeg = async(req, res) => {
     try{
         user_id = req.params.user_id;
-        var user_tw_num = Math.floor(Math.random()*100) +1;
-        console.log(user_tw_num);
+        var tw_like_findAll = await user_Trail.findAll();
+        var count = tw_like_findAll.length;
+        console.log("yujin" + count);
+        console.log("yujin" + count);
+        console.log("yujin" + count);
+        console.log("yujin" + count);
+        console.log("yujin" + count);
+
         await user_Trail.create({
-            user_tw_num: 5,
+            user_tw_num: count,
             user_id: req.params.user_id,
             user_tw_name: req.body.user_tw_name,
             user_tw_geo: req.body.user_tw_geo,
@@ -23,9 +29,9 @@ exports.saveTrailTeg = async(req, res) => {
             theme: req.body.theme,
             theme2: req.body.theme2,
             theme3: req.body.theme3
-            
         });
-        return res.redirect("/towalking/" + user_id + "/list");
+
+        return res.redirect("/towalking/" + user_id + "/list/userList" );
 
     }catch(err){
         res.status(500).send({

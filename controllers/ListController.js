@@ -9,7 +9,6 @@ exports.trailList = async (req,res)=>{
             attributes:['tw_num', 'tw_name', 'tw_pic', 'like','tw_geo']
 
         });
-        console.log(data);
         res.render("../views/main",{user_id: req.params.user_id, trails:data});
     }catch(err){
         res.status(500).send({

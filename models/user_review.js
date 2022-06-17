@@ -20,11 +20,6 @@ module.exports = (sequelize, Sequelize) => {
         allowNull: true,
         defaultValue: 0
       },
-      like: { // 좋아요 수
-        type: Sequelize.INTEGER(45),
-        allowNull: true,
-        defaultValue: 0
-      },
       level: { // 난이도
         type: Sequelize.STRING(45),
         allowNull: true
